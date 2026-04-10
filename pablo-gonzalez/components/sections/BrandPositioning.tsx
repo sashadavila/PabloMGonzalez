@@ -27,21 +27,38 @@ const features = [
   },
 ];
 
-const quote =
-  "Las heridas no son el final de tu historia — son el prólogo de tu mayor fortaleza.";
 const p1 =
-  "He navegado la incertidumbre, enfrentado mis propios miedos y transformado los momentos más oscuros en lecciones de fortaleza interior. No desde la teoría — desde la experiencia real de quien tocó fondo y eligió levantarse.";
+  "Nuestro compromiso es acompañarte desde la autenticidad, no desde la perfección. Porque el verdadero liderazgo no nace de no haber caído, sino de la capacidad de levantarse con más claridad, criterio y dirección.";
 const p2 =
-  "Mi compromiso es acompañarte desde la autenticidad, no desde la perfección. Porque el verdadero liderazgo no nace de no haber caído — nace de saber levantarse con más claridad que antes.";
+  "Combinamos la precisión de la administración de empresas, la profundidad de la psicología organizacional y la disciplina de la ejecución para intervenir en contextos donde los resultados no pueden depender del azar.";
 const p3 =
-  "Ofrezco acompañamiento real, basado en empatía y experiencia vivida. Cierro la brecha entre la teoría abstracta y la realidad de alto nivel — porque yo mismo he estado en ese punto de quiebre.";
+  "En un mundo saturado de teorías, nosotros elegimos la ejecución disciplinada";
+const p4 =
+  "Combinamos la precisión de la administración de empresas, la profundidad de la psicología organizacional y la disciplina de la ejecución para intervenir en contextos donde los resultados no pueden depender del azar";
 
 export function BrandPositioning() {
   return (
     <section
       id="filosofia"
-      className="py-16 md:py-24 px-4 md:px-6 bg-background-dark"
+      className="relative py-16 md:py-24 px-4 md:px-6 bg-background-dark"
     >
+      {/* ── FONDO ── */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/brujula.png"
+          alt="Background"
+          fill
+          priority
+          className="object-cover"
+        />
+
+        {/* Overlay con degradé superior e inferior */}
+        <div
+          className="absolute inset-0 
+          bg-[linear-gradient(to_bottom,rgba(0,0,0,0.95)_0%,rgba(0,0,0,0.6)_30%,rgba(0,0,0,0.6)_70%,rgba(0,0,0,0.95)_100%)]"
+        />
+      </div>
+
       <div className="max-w-7xl mx-auto space-y-16 md:space-y-32">
         {/* ── BLOQUE 1 ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
@@ -67,7 +84,7 @@ export function BrandPositioning() {
             </div>
             <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden">
               <Image
-                src="/pg_bck_3.png"
+                src="/Foto.jpg"
                 alt="Pablo González"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -78,33 +95,32 @@ export function BrandPositioning() {
 
           {/* Texto */}
           <div className="order-1 lg:order-2 space-y-5 md:space-y-8">
-            <div className="flex items-center gap-4">
-              <span className="w-6 md:w-8 h-px bg-primary opacity-60" />
-              <span className="text-[10px] md:text-xs font-medium tracking-[0.25em] text-primary uppercase">
-                Mi Historia
-              </span>
-            </div>
-
             <h2
               className="text-lg md:text-xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-none"
               style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
             >
-              La vida no te rompe,
-              <br /> <span className="text-[#C9A84C]">Te prepara</span>
+              Equipo <span className="text-[#C9A84C]"> Alineado</span>
             </h2>
             <blockquote className="border-l-2 border-[#3b8c5e] pl-4 md:pl-6 my-4 md:my-8">
               <p
-                className="text-base md:text-lg lg:text-xl text-slate-300 font-light leading-relaxed italic"
+                className="text-base md:text-lg lg:text-xl text-slate-000 font-light leading-relaxed italic"
                 style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
               >
-                {quote}
+                {" "}
+                Soy Pablo González, la cara visible de un ecosistema de
+                especialistas que da vida a esta consultora. No somos un grupo
+                improvisado: somos un equipo alineado a una convinccion
+                innegociable:{" "}
+                <span className="text-[#3b8c5e] font-semibold relative">
+                  el alto rendimiento es una ciencia, no un accidente
+                </span>
               </p>
             </blockquote>
 
-            <p className="text-sm md:text-base text-slate-400 leading-relaxed font-light">
+            <p className="text-sm md:text-base text-slate-100 leading-relaxed font-light">
               {p1}
             </p>
-            <p className="text-sm md:text-base text-slate-400 leading-relaxed font-light">
+            <p className="text-sm md:text-base text-slate-100 leading-relaxed font-light">
               {p2}
             </p>
           </div>
@@ -125,11 +141,17 @@ export function BrandPositioning() {
                 className="text-lg md:text-xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-none"
                 style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
               >
-                No ofrezco soluciones{" "}
-                <span className="text-[#C9A84C]">mágicas.</span>
+                Nosotros no venimos a decirte que hacer{" "}
+                <span className="text-[#C9A84C]">
+                  {" "}
+                  venimos a transformar cómo lo hacés
+                </span>
               </h2>
-              <p className="text-sm md:text-base text-slate-400 leading-relaxed font-light">
+              <p className="text-sm md:text-base text-slate-100 leading-relaxed font-light">
                 {p3}
+              </p>
+              <p className="text-sm md:text-base text-slate-100 leading-relaxed font-light">
+                {p4}
               </p>
             </div>
 
