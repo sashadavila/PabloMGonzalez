@@ -1,134 +1,106 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-type NavLink = {
-  label: string;
-  href: string;
-};
-
-type NavbarProps = {
-  /** Links del menú desktop + mobile */
-  links?: NavLink[];
-  /** Texto del botón CTA */
-  ctaLabel?: string;
-  /** Href del botón CTA */
-  ctaHref?: string;
-  /**
-   * Color de acento:
-   *  - "green"  → #3b8c5e  (Personas / Deportistas)
-   *  - "gold"   → #c5a059  (Empresas)
-   */
-  accent?: "green" | "gold";
-};
-
-// ─── Paleta de acento ─────────────────────────────────────────────────────────
-
-const accentTokens = {
-  green: {
-    iconColor: "text-[#3b8c5e]",
-    hoverText: "hover:text-[#3b8c5e]",
-    ctaBorder:
-      "border-[#3b8c5e] text-[#3b8c5e] hover:bg-[#3b8c5e] hover:text-white",
-  },
-  gold: {
-    iconColor: "text-[#c5a059]",
-    hoverText: "hover:text-[#c5a059]",
-    ctaBorder:
-      "border-[#c5a059] text-[#c5a059] hover:bg-[#c5a059] hover:text-[#0d0d0d]",
-  },
-} as const;
-
-// ─── Defaults ─────────────────────────────────────────────────────────────────
-
-const DEFAULT_LINKS: NavLink[] = [
-  { label: "Inicio", href: "/" },
-  { label: "Metodología", href: "#metodologia" },
-];
-
-// ─── Component ────────────────────────────────────────────────────────────────
-
-export function Navbar({
-  links = DEFAULT_LINKS,
-  ctaLabel = "Contacto",
-  ctaHref = "#contacto",
-  accent = "green",
-}: NavbarProps) {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const tk = accentTokens[accent];
+export function Navbar() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-[#0d0d0d]/90 backdrop-blur-md border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-
-        {/* ── Logo ── */}
-        <div className="flex items-center gap-4">
+    <header className="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-xl shadow-2xl shadow-black/20">
+      <nav className="flex justify-between items-center px-5 md:px-10 py-4 md:py-5 w-full max-w-[1400px] mx-auto">
+        {/* Logo + menú */}
+        <div className="flex items-center gap-3 md:gap-4">
+          {/* Botón mobile */}
           <button
-            className="md:hidden"
-            onClick={() => setMobileOpen((o) => !o)}
-            aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
-            aria-expanded={mobileOpen}
+            className="md:hidden text-neutral-300"
+            onClick={() => setOpen(!open)}
           >
-            <span className={`material-symbols-outlined text-3xl ${tk.iconColor}`}>
-              {mobileOpen ? "close" : "menu"}
+            <span className="material-symbols-outlined">
+              {open ? "close" : "menu"}
             </span>
           </button>
 
-          <Link href="/" className="flex items-center">
-            <div className="relative h-32 w-40">
-              <Image
-                src="/ICONO PNG (4).png"
-                alt="Pablo M. González"
-                fill
-                className="object-contain object-left"
-                priority
-              />
-            </div>
+          {/* Logo */}
+          <Link href="/" className="flex items-center h-10 md:h-12">
+            <Image
+              src="/ICONO.3.png"
+              alt="Logo"
+              width={100}
+              height={100}
+              className="object-contain"
+              priority
+            />
           </Link>
         </div>
 
-        {/* ── Desktop links ── */}
-        <div className="hidden md:flex items-center gap-8">
-          {links.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-xs font-bold tracking-[0.2em] text-white/60 ${tk.hoverText} transition-colors uppercase`}
-            >
-              {item.label}
-            </Link>
-          ))}
+        {/* Links desktop */}
+        <div className="hidden md:flex items-center gap-8 lg:gap-10">
+          <Link
+            href="#"
+            className="text-[#e6c35c] font-bold border-b border-[#e6c35c] text-xs tracking-widest uppercase"
+          >
+            Inicio
+          </Link>
+
+          <Link
+            href="#"
+            className="text-[#c4c7c7] tracking-widest uppercase text-xs hover:text-white transition-colors duration-300"
+          >
+            Sobre Mí
+          </Link>
+
+          <Link
+            href="#"
+            className="text-[#c4c7c7] tracking-widest uppercase text-xs hover:text-white transition-colors duration-300"
+          >
+            Servicios
+          </Link>
+
+          <Link
+            href="#"
+            className="text-[#c4c7c7] tracking-widest uppercase text-xs hover:text-white transition-colors duration-300"
+          >
+            División Gastronómica
+          </Link>
         </div>
 
-        {/* ── CTA — bordes rectos, sin rounded ── */}
-        <Link
-          href={ctaHref}
-          className={`text-xs font-bold tracking-[0.2em] border px-5 py-2 uppercase transition-all ${tk.ctaBorder}`}
-        >
-          {ctaLabel}
-        </Link>
-      </div>
+        {/* CTA */}
+        <div className="relative z-10 flex flex-col sm:flex-row gap-2 justify-center">
+          <Link
+            href="#contacto"
+            className="bg-primary text-white px-10 py-4 text-sm font-bold uppercase tracking-widest hover:shadow-[0_0_30px_rgba(59,140,94,0.4)] transition-all rounded-lg"
+          >
+            Contactar
+          </Link>
+        </div>
+      </nav>
 
-      {/* ── Mobile menu ── */}
-      {mobileOpen && (
-        <div className="md:hidden bg-[#0d0d0d] border-t border-white/5 px-6 py-4 flex flex-col gap-4">
-          {links.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setMobileOpen(false)}
-              className={`text-xs font-bold tracking-[0.2em] text-white/60 ${tk.hoverText} transition-colors uppercase py-1`}
-            >
-              {item.label}
-            </Link>
-          ))}
+      {/* Mobile Menu */}
+      {open && (
+        <div className="md:hidden bg-[#131313] border-t border-white/10 px-6 py-6 space-y-6">
+          <Link href="#" className="block text-[#e6c35c] uppercase text-sm">
+            Inicio
+          </Link>
+
+          <Link href="#" className="block text-white/70 uppercase text-sm">
+            Sobre Mí
+          </Link>
+
+          <Link href="#" className="block text-white/70 uppercase text-sm">
+            Servicios
+          </Link>
+
+          <Link href="#" className="block text-white/70 uppercase text-sm">
+            División Gastronómica
+          </Link>
+
+          <button className="w-full mt-4 text-sm tracking-widest uppercase border border-white/20 py-2 hover:bg-white hover:text-black transition-all duration-300">
+            CONTACTO
+          </button>
         </div>
       )}
-    </nav>
+    </header>
   );
 }
-

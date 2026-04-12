@@ -1,16 +1,18 @@
 import { Hero } from "@/components/sections/Hero";
 import { NavigationPaths } from "@/components/sections/NavigationPaths";
 import { BrandPositioning } from "@/components/sections/BrandPositioning";
-import { ThreePillars } from "@/components/sections/ThreePillars";
 import { Footer } from "@/components/sections/Footer";
+import { Navbar } from "@/components/sections";
+import CallToAction from "@/components/sections/CallToAction";
 
 export default function Home() {
   return (
     <main className="bg-background-dark text-slate-100 overflow-x-hidden">
+      <Navbar />
       <Hero />
       <BrandPositioning />
-      <ThreePillars />
       <NavigationPaths />
+      <CallToAction />
       <Footer />
     </main>
   );

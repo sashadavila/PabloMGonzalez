@@ -5,9 +5,9 @@ const PATHS = [
     href: "/personas",
     icon: "person",
     title: "Personas",
-    eyebrow: "Desarrollo Individual",
+    eyebrow: "Mentoring Individual",
     description:
-      "Para quienes buscan sanar, crecer y liderar su propia vida con propósito y autenticidad.",
+      "Para quienes buscan claridad, motivación, propósito y autodesarrollo. Un viaje hacia el interior para proyectar autoridad hacia el exterior",
     cta: "Explorar Crecimiento",
   },
   {
@@ -16,7 +16,7 @@ const PATHS = [
     title: "Empresas",
     eyebrow: "Consultoría Corporativa",
     description:
-      "Para organizaciones que entienden que la ética no es un costo, es su mayor ventaja competitiva.",
+      "Optimización de procesos para organizaciones que buscan trascender. Ingeniería organizacional enfocada en la eficiencia operativa",
     cta: "Servicios Corporativos",
   },
   {
@@ -25,25 +25,24 @@ const PATHS = [
     title: "Deportistas",
     eyebrow: "Alto Rendimiento",
     description:
-      "Para atletas que saben que la fortaleza mental es tan decisiva como el talento físico.",
+      "Gestión de activos y maximización del potencial atlético. Ciencia aplicada al éxito deportivo bajo presión",
     cta: "Ver Mentoría",
   },
 ];
 
 const subtitle =
-  "Cada proceso es único. Cada historia merece un acompañamiento a medida. Encontrá el espacio que fue diseñado para vos.";
+  "Sistemas integrales diseñados para la excelencia operativa y mental";
 
 export function NavigationPaths() {
   return (
     <section className="relative z-30 px-4 md:px-6 py-14 md:py-24 bg-white/[0.02] border-t border-white/5">
       <div className="max-w-6xl mx-auto">
-
         {/* Header */}
         <div className="mb-8 md:mb-16 space-y-4 md:space-y-6">
           <div className="flex items-center gap-4">
             <span className="w-6 md:w-8 h-px bg-[#3b8c5e] opacity-60" />
             <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] text-[#3b8c5e] uppercase">
-              ¿Donde está tu batalla?
+              Ejes Estrategicos
             </span>
           </div>
 
@@ -52,12 +51,12 @@ export function NavigationPaths() {
               className="text-lg md:text-xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-none"
               style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
             >
-              Elegí tu{" "}
-              <span className="text-[#C9A84C]">camino.</span>
+              Tres pilares de <span className="text-[#C9A84C]">Ejecucion</span>
             </h2>
 
             <div className="lg:text-right">
-             <p className="text-sm md:text-base text-slate-400 leading-relaxed font-light"
+              <p
+                className="text-sm md:text-base text-slate-400 leading-relaxed font-light"
                 style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
               >
                 {subtitle}
@@ -70,38 +69,50 @@ export function NavigationPaths() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-px bg-white/5 border border-white/5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {PATHS.map((path, index) => (
             <Link
               key={path.href}
               href={path.href}
               className="group relative overflow-hidden bg-background-dark p-6 md:p-10
-                transition-all duration-500
-                hover:bg-white/[0.03] active:bg-white/[0.05]"
+rounded-xl md:rounded-2xl
+border border-white/5
+shadow-[0_4px_20px_rgba(0,0,0,0.4)]
+hover:shadow-[0_10px_40px_rgba(0,0,0,0.7)]
+transition-all duration-500
+hover:bg-white/[0.03]"
             >
               {/* Shimmer */}
-              <div className="absolute inset-0 z-0 pointer-events-none
+              <div
+                className="absolute inset-0 z-0 pointer-events-none
                 bg-[linear-gradient(105deg,transparent_40%,rgba(201,168,76,0.07)_50%,transparent_60%)]
                 translate-x-[-100%] group-hover:translate-x-[100%] group-active:translate-x-[100%]
-                transition-transform duration-1000 ease-in-out" />
+                transition-transform duration-1000 ease-in-out"
+              />
 
               {/* Glow */}
-              <div className="absolute inset-0 z-0 pointer-events-none opacity-0
+              <div
+                className="absolute inset-0 z-0 pointer-events-none opacity-0
                 group-hover:opacity-100 group-active:opacity-100
                 transition-opacity duration-700
-                bg-[radial-gradient(ellipse_at_bottom,rgba(201,168,76,0.08)_0%,transparent_70%)]" />
+                bg-[radial-gradient(ellipse_at_bottom,rgba(201,168,76,0.08)_0%,transparent_70%)]"
+              />
 
               {/* Línea superior */}
-              <div className="absolute top-0 left-0 right-0 h-px z-10
+              <div
+                className="absolute top-0 left-0 right-0 h-px z-10
                 bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent
                 scale-x-0 group-hover:scale-x-100 group-active:scale-x-100
-                transition-transform duration-700" />
+                transition-transform duration-700"
+              />
 
               {/* Línea inferior */}
-              <div className="absolute bottom-0 left-0 right-0 h-px z-10
+              <div
+                className="absolute bottom-0 left-0 right-0 h-px z-10
                 bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent
                 scale-x-0 group-hover:scale-x-100 group-active:scale-x-100
-                transition-transform duration-700" />
+                transition-transform duration-700"
+              />
 
               <div className="relative z-10">
                 <span
@@ -124,9 +135,11 @@ export function NavigationPaths() {
                   {path.title}
                 </h2>
 
-                <div className="w-6 md:w-8 h-px bg-[#C9A84C]/30 mb-4 md:mb-6
+                <div
+                  className="w-6 md:w-8 h-px bg-[#C9A84C]/30 mb-4 md:mb-6
                   group-hover:bg-[#C9A84C] group-active:bg-[#C9A84C]
-                  transition-colors duration-500" />
+                  transition-colors duration-500"
+                />
 
                 <p
                   className="text-slate-500 text-xs md:text-sm leading-relaxed mb-8 md:mb-10 font-light"
@@ -135,13 +148,18 @@ export function NavigationPaths() {
                   {path.description}
                 </p>
 
-                <div className="flex items-center gap-2 text-[#3b8c5e]
+                <div
+                  className="flex items-center gap-2 text-[#3b8c5e]
                   group-hover:text-[#C9A84C] group-active:text-[#C9A84C]
                   font-bold uppercase tracking-[0.15em] text-xs
                   group-hover:gap-4 group-active:gap-4
-                  transition-all duration-300">
+                  transition-all duration-300"
+                >
                   {path.cta}
-                  <span className="material-symbols-outlined" style={{ fontSize: "14px" }}>
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ fontSize: "14px" }}
+                  >
                     arrow_forward
                   </span>
                 </div>
@@ -149,7 +167,6 @@ export function NavigationPaths() {
             </Link>
           ))}
         </div>
-
       </div>
     </section>
   );

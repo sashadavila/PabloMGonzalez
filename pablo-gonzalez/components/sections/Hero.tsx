@@ -29,6 +29,9 @@ export function Hero() {
         </div>
 
         <div className="bg-background-dark px-4 pb-12 pt-4 space-y-4 text-center">
+          <p className="text-sm text-slate-300 font-light leading-relaxed">
+            {subtitle}
+          </p>
           <motion.div
             className="flex items-center justify-center gap-3"
             initial={{ opacity: 0, y: 10 }}
@@ -48,9 +51,6 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.4 }}
           >
-            <p className="text-sm text-slate-300 font-light leading-relaxed">
-              {subtitle}
-            </p>
             <p className="text-xs text-slate-500 font-light leading-relaxed">
               {subtitle2}
             </p>

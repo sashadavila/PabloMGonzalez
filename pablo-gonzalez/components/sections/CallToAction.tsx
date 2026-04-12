@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export function CallToAction() {
+export default function CallToAction() {
   return (
     <section id="consultoria" className="py-24 px-6 border-t border-primary/10">
       <div className="max-w-5xl mx-auto bg-primary/10 rounded-3xl p-12 md:p-20 text-center border border-primary/20 relative overflow-hidden">
