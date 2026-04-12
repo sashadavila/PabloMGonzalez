@@ -17,7 +17,7 @@ export function Hero() {
         {/* sombras */}
         <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-background-dark/30 z-10" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(0,0,0,0.7),transparent_60%)] z-10" />
-
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d]/90 via-[#0d0d0d]/50 to-transparent z-10" />
         <Image
           src="/Resiliencia.png"
           alt="Liderazgo"
@@ -37,7 +37,7 @@ export function Hero() {
 
           {/* TITULO */}
           <motion.h2
-            className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-white leading-[1.1] italic"
+            className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-white leading-[1.1] italic drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -55,11 +55,11 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.5 }}
           >
-            <p className="text-sm sm:text-base md:text-xl text-slate-300 font-light leading-relaxed italic font-serif">
+            <p className="text-sm sm:text-base md:text-xl text-white font-light leading-relaxed italic font-serif">
               {subtitle}
             </p>
 
-            <p className="text-xs sm:text-sm md:text-base text-slate-400 leading-relaxed font-light">
+            <p className="text-xs sm:text-sm md:text-base text-white/80 leading-relaxed font-light">
               {subtitle2}
             </p>
           </motion.div>
