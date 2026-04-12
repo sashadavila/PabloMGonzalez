@@ -10,12 +10,12 @@ export default function ContactForm() {
   return (
     <section
       id="contacto"
-      className="py-24 bg-[#0d0d0d] border-t border-white/5"
+      className="py-24 md:py-32 bg-[#0d0d0d] border-t border-white/5"
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-[1fr_1.2fr] gap-10 md:gap-16 items-start">
-          {/* ── INFO ── */}
-          <div className="space-y-6 max-w-md">
+      <div className="max-w-7xl xl:max-w-[1400px] mx-auto px-4 sm:px-6">
+        <div className="bg-[#161616] border border-white/5 flex flex-col lg:flex-row rounded-2xl overflow-hidden">
+          {/* ASIDE */}
+          <aside className="lg:w-[35%] p-6 sm:p-8 md:p-10 lg:p-12 bg-[#3b8c5e]/5 border-b lg:border-b-0 lg:border-r border-white/5 space-y-5 md:space-y-6">
             <div className="flex items-center gap-4">
               <span className="w-6 md:w-8 h-px bg-[#3b8c5e] opacity-60" />
               <span className="text-[10px] tracking-[0.25em] text-[#3b8c5e] uppercase">
@@ -24,7 +24,7 @@ export default function ContactForm() {
             </div>
 
             <h2
-              className="text-xl md:text-2xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-none"
+              className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-tight"
               style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
             >
               Iniciá una <span className="text-[#C9A84C]">conversación</span>
@@ -35,7 +35,6 @@ export default function ContactForm() {
               ver si este proceso es el adecuado para vos.
             </p>
 
-            {/* CONTACTO */}
             <div className="space-y-4 pt-4">
               <div className="flex items-center gap-3 text-sm text-slate-400">
                 <span className="material-symbols-outlined text-[#3b8c5e]">
@@ -53,91 +52,93 @@ export default function ContactForm() {
                 <span>Argentina · Remoto Global</span>
               </div>
             </div>
-          </div>
+          </aside>
 
-          {/* ── FORM ── */}
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-            {/* INPUT BASE STYLE */}
-            {[
-              {
-                id: "nombre",
-                label: "Nombre Completo",
-                type: "text",
-                placeholder: "Tu nombre...",
-              },
-              {
-                id: "email",
-                label: "Email *",
-                type: "email",
-                placeholder: "tu@email.com",
-              },
-            ].map((field) => (
-              <div key={field.id} className="space-y-2">
-                <label className="text-[10px] tracking-[0.2em] text-slate-500 uppercase">
-                  {field.label}
+          {/* FORM */}
+          <div className="lg:w-[65%] p-6 sm:p-8 md:p-10 lg:p-12">
+            <form className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
+              {/* Nombre */}
+              <div className="space-y-2">
+                <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
+                  Nombre Completo
                 </label>
-
                 <input
-                  type={field.type}
-                  placeholder={field.placeholder}
-                  className="w-full p-4 rounded-xl bg-[#1a1a1a] border border-white/5
-                  text-white placeholder:text-slate-600
+                  type="text"
+                  placeholder="Tu nombre..."
+                  className="w-full bg-transparent border-b border-white/10
                   focus:border-[#3b8c5e] focus:outline-none
-                  transition-all duration-300"
+                  text-white py-2.5 sm:py-3 text-sm sm:text-base
+                  transition-colors placeholder:text-slate-600"
                 />
               </div>
-            ))}
 
-            {/* SELECT */}
-            <div className="md:col-span-2 space-y-2">
-              <label className="text-[10px] tracking-[0.2em] text-slate-500 uppercase">
-                Intereses de Asesoría
-              </label>
+              {/* Email */}
+              <div className="space-y-2">
+                <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  placeholder="tu@email.com"
+                  className="w-full bg-transparent border-b border-white/10
+                  focus:border-[#3b8c5e] focus:outline-none
+                  text-white py-2.5 sm:py-3 text-sm sm:text-base
+                  transition-colors placeholder:text-slate-600"
+                />
+              </div>
 
-              <select
-                className="w-full p-4 rounded-xl bg-[#1a1a1a] border border-white/5
-                text-white focus:border-[#3b8c5e] focus:outline-none
-                transition-all appearance-none"
-              >
-                {advisoryOptions.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
-            </div>
+              {/* Select */}
+              <div className="md:col-span-2 space-y-2">
+                <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
+                  Intereses de Asesoría
+                </label>
+                <select
+                  className="w-full bg-transparent border-b border-white/10
+                  focus:border-[#3b8c5e] focus:outline-none
+                  text-white py-2.5 sm:py-3 text-sm sm:text-base
+                  transition-colors appearance-none cursor-pointer"
+                >
+                  {advisoryOptions.map((opt) => (
+                    <option key={opt} value={opt} className="bg-[#161616]">
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-            {/* TEXTAREA */}
-            <div className="md:col-span-2 space-y-2">
-              <label className="text-[10px] tracking-[0.2em] text-slate-500 uppercase">
-                Mensaje
-              </label>
+              {/* Mensaje */}
+              <div className="md:col-span-2 space-y-2">
+                <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
+                  Mensaje
+                </label>
+                <textarea
+                  rows={4}
+                  placeholder="Contame tu situación..."
+                  className="w-full bg-transparent border-b border-white/10
+                  focus:border-[#3b8c5e] focus:outline-none
+                  text-white py-2.5 sm:py-3 text-sm sm:text-base
+                  transition-colors resize-none placeholder:text-slate-600"
+                />
+              </div>
 
-              <textarea
-                rows={4}
-                placeholder="Contame tu situación..."
-                className="w-full p-4 rounded-xl bg-[#1a1a1a] border border-white/5
-                text-white placeholder:text-slate-600
-                focus:border-[#3b8c5e] focus:outline-none
-                transition-all resize-none"
-              />
-            </div>
-
-            {/* CTA */}
-            <div className="md:col-span-2 pt-4">
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center gap-2 
-    bg-primary text-white px-8 md:px-12 py-4 md:py-5 
-    text-sm font-bold uppercase rounded-lg"
-              >
-                Enviar Solicitud
-                <span className="material-symbols-outlined text-base">
-                  east
-                </span>
-              </button>
-            </div>
-          </form>
+              {/* CTA */}
+              <div className="md:col-span-2 pt-4">
+                <button
+                  type="submit"
+                  className="w-full sm:w-auto bg-[#3b8c5e] text-white 
+                  px-6 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5
+                  text-xs sm:text-sm font-bold uppercase tracking-widest
+                  hover:bg-[#3b8c5e]/90 transition-all 
+                  flex items-center justify-center gap-2 sm:gap-3"
+                >
+                  Enviar Solicitud
+                  <span className="material-symbols-outlined text-sm">
+                    north_east
+                  </span>
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>

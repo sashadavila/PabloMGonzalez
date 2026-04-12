@@ -10,130 +10,109 @@ export default function ContactFormEmpresa() {
   return (
     <section
       id="contacto"
-      className="py-32 bg-[#0d0d0d] border-t border-white/5"
+      className="py-24 md:py-32 bg-[#0d0d0d] border-t border-white/5"
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="bg-[#161616] border border-white/5 flex flex-col lg:flex-row">
+      <div className="max-w-7xl xl:max-w-[1400px] mx-auto px-4 sm:px-6">
+        <div className="bg-[#161616] border border-white/5 flex flex-col lg:flex-row rounded-2xl overflow-hidden">
+          {/* ASIDE */}
+          <aside className="lg:w-[35%] p-6 sm:p-8 md:p-10 lg:p-12 bg-[#c5a059]/5 border-b lg:border-b-0 lg:border-r border-white/5 space-y-5 md:space-y-6">
+            <div className="flex items-center gap-4">
+              <span className="w-6 md:w-8 h-px bg-[#c5a059] opacity-60" />
+              <span className="text-[10px] tracking-[0.25em] text-[#c5a059] uppercase">
+                Empresas
+              </span>
+            </div>
 
-          {/* ── Info lateral ── */}
-          <aside className="lg:w-1/3 p-12 bg-[#c5a059]/5 border-b lg:border-b-0 lg:border-r border-white/5">
-            <h2 className="font-serif text-4xl text-white mb-6">
-              Hablemos de su <br /> próximo paso.
+            <h2
+              className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-tight"
+              style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
+            >
+              Hablemos de su{" "}
+              <span className="text-[#C9A84C]">próximo paso</span>
             </h2>
-            <p className="text-slate-400 mb-12 leading-relaxed">
-              Personalizamos cada intervención según los retos específicos de su
-              sector. Complete el formulario y nuestro equipo se pondrá en
-              contacto en menos de 24 horas.
+
+            <p className="text-sm md:text-base text-slate-300 leading-relaxed">
+              Personalizamos cada intervención según los retos de su
+              organización.
             </p>
 
-            <address className="not-italic space-y-8">
-              <div className="flex items-center gap-4">
-                <span
-                  className="material-symbols-outlined text-[#c5a059]"
-                  aria-hidden="true"
-                >
+            <div className="space-y-4 pt-4">
+              <div className="flex items-center gap-3 text-sm text-slate-400">
+                <span className="material-symbols-outlined text-[#c5a059]">
                   mail
                 </span>
-                <a
-                  href="mailto:empresas@pablomgonzalez.com"
-                  className="text-sm font-bold tracking-wider hover:text-[#c5a059] transition-colors"
-                >
-                  EMPRESAS@PABLOMGONZALEZ.COM
-                </a>
+                <span className="hover:text-[#c5a059] transition">
+                  empresas@pablomgonzalez.com
+                </span>
               </div>
 
-              <div className="flex items-center gap-4">
-                <span
-                  className="material-symbols-outlined text-[#c5a059]"
-                  aria-hidden="true"
-                >
+              <div className="flex items-center gap-3 text-sm text-slate-400">
+                <span className="material-symbols-outlined text-[#c5a059]">
                   location_on
                 </span>
-                <span className="text-sm font-bold tracking-wider">
-                  SERVICIO GLOBAL · IN-COMPANY
-                </span>
+                <span>Servicio global · In-company</span>
               </div>
-            </address>
+            </div>
           </aside>
 
-          {/* ── Formulario ── */}
-          <div className="lg:w-2/3 p-12">
-            {/*
-              ⚠️  Reemplazá action="#" con tu Server Action o handler cliente.
-            */}
-            <form
-              action="#"
-              method="POST"
-              className="grid md:grid-cols-2 gap-8"
-            >
+          {/* FORM */}
+          <div className="lg:w-[65%] p-6 sm:p-8 md:p-10 lg:p-12">
+            <form className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
               {/* Empresa */}
               <div className="space-y-2">
-                <label
-                  htmlFor="empresa"
-                  className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase"
-                >
+                <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
                   Nombre de la Empresa
                 </label>
                 <input
-                  id="empresa"
-                  name="empresa"
                   type="text"
                   placeholder="Ej: Global Tech Solutions"
-                  className="w-full bg-transparent border-b border-white/10 focus:border-[#c5a059] focus:outline-none text-white py-3 transition-colors placeholder:text-slate-600"
+                  className="w-full bg-transparent border-b border-white/10
+                  focus:border-[#c5a059] focus:outline-none
+                  text-white py-2.5 sm:py-3 text-sm sm:text-base
+                  transition-colors placeholder:text-slate-600"
                 />
               </div>
 
               {/* Email */}
               <div className="space-y-2">
-                <label
-                  htmlFor="email"
-                  className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase"
-                >
-                  Email Corporativo{" "}
-                  <span className="text-[#c5a059]" aria-label="obligatorio">
-                    *
-                  </span>
+                <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
+                  Email Corporativo *
                 </label>
                 <input
-                  id="email"
-                  name="email"
                   type="email"
                   placeholder="email@empresa.com"
-                  required
-                  autoComplete="email"
-                  className="w-full bg-transparent border-b border-white/10 focus:border-[#c5a059] focus:outline-none text-white py-3 transition-colors placeholder:text-slate-600"
+                  className="w-full bg-transparent border-b border-white/10
+                  focus:border-[#c5a059] focus:outline-none
+                  text-white py-2.5 sm:py-3 text-sm sm:text-base
+                  transition-colors placeholder:text-slate-600"
                 />
               </div>
 
               {/* Cargo */}
               <div className="space-y-2">
-                <label
-                  htmlFor="cargo"
-                  className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase"
-                >
+                <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
                   Su Cargo
                 </label>
                 <input
-                  id="cargo"
-                  name="cargo"
                   type="text"
-                  placeholder="Ej: Director de RRHH / CEO"
-                  className="w-full bg-transparent border-b border-white/10 focus:border-[#c5a059] focus:outline-none text-white py-3 transition-colors placeholder:text-slate-600"
+                  placeholder="Ej: CEO / Director"
+                  className="w-full bg-transparent border-b border-white/10
+                  focus:border-[#c5a059] focus:outline-none
+                  text-white py-2.5 sm:py-3 text-sm sm:text-base
+                  transition-colors placeholder:text-slate-600"
                 />
               </div>
 
-              {/* Objetivo */}
+              {/* Select */}
               <div className="space-y-2">
-                <label
-                  htmlFor="objetivo"
-                  className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase"
-                >
-                  Objetivos Principales
+                <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
+                  Objetivos
                 </label>
                 <select
-                  id="objetivo"
-                  name="objetivo"
-                  className="w-full bg-[#161616] border-b border-white/10 focus:border-[#c5a059] focus:outline-none text-white py-3 transition-colors appearance-none cursor-pointer"
+                  className="w-full bg-transparent border-b border-white/10
+                  focus:border-[#c5a059] focus:outline-none
+                  text-white py-2.5 sm:py-3 text-sm sm:text-base
+                  transition-colors appearance-none cursor-pointer"
                 >
                   {selectOptions.map((opt) => (
                     <option key={opt} value={opt} className="bg-[#161616]">
@@ -145,43 +124,39 @@ export default function ContactFormEmpresa() {
 
               {/* Mensaje */}
               <div className="md:col-span-2 space-y-2">
-                <label
-                  htmlFor="mensaje"
-                  className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase"
-                >
-                  Mensaje / Contexto
+                <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
+                  Mensaje
                 </label>
                 <textarea
-                  id="mensaje"
-                  name="mensaje"
                   rows={4}
-                  placeholder="Describa brevemente el desafío que enfrenta su organización..."
-                  className="w-full bg-transparent border-b border-white/10 focus:border-[#c5a059] focus:outline-none text-white py-3 transition-colors resize-none placeholder:text-slate-600"
+                  placeholder="Describa el desafío de su organización..."
+                  className="w-full bg-transparent border-b border-white/10
+                  focus:border-[#c5a059] focus:outline-none
+                  text-white py-2.5 sm:py-3 text-sm sm:text-base
+                  transition-colors resize-none placeholder:text-slate-600"
                 />
               </div>
 
-              {/* Submit */}
+              {/* CTA */}
               <div className="md:col-span-2 pt-4">
                 <button
                   type="submit"
-                  className="w-full md:w-auto bg-[#c5a059] text-[#0d0d0d] px-12 py-5 text-sm font-bold tracking-widest uppercase hover:bg-[#c5a059]/90 transition-all flex items-center gap-3"
+                  className="w-full sm:w-auto bg-[#c5a059] text-[#0d0d0d] 
+                  px-6 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5
+                  text-xs sm:text-sm font-bold uppercase tracking-widest
+                  hover:bg-[#c5a059]/90 transition-all 
+                  flex items-center justify-center gap-2 sm:gap-3"
                 >
-                  Enviar Solicitud de Consultoría
-                  <span
-                    className="material-symbols-outlined text-sm"
-                    aria-hidden="true"
-                  >
+                  Enviar Solicitud
+                  <span className="material-symbols-outlined text-sm">
                     north_east
                   </span>
                 </button>
               </div>
             </form>
           </div>
-
         </div>
       </div>
     </section>
   );
 }
-
-
