@@ -1,4 +1,5 @@
-import { number } from "framer-motion";
+"use client";
+
 import Image from "next/image";
 
 const pillars = [
@@ -26,7 +27,6 @@ const pillars = [
     image: "/ICONO.png",
     alt: "Proposito y Valor",
   },
-
   {
     number: "04",
     title: "Introspección aplicada al Liderazgo",
@@ -43,122 +43,107 @@ const bridgeQuote =
 export function FourPillars() {
   return (
     <section id="pilares" className="py-16 md:py-10 bg-background-dark">
-      <div className="w-full px-6 md:px-15">
-        <div className="bg-white/3 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10">
-          {/* Header */}
+      <div className="w-full px-4 md:px-10">
+        <div className="bg-white/3 backdrop-blur-md rounded-2xl md:rounded-3xl p-5 md:p-10">
+          {/* HEADER */}
           <div className="max-w-3xl mx-auto text-center mb-10 md:mb-20">
-            <div className="flex items-center justify-center gap-4 mb-5 md:mb-6">
-              <span className="w-6 md:w-8 h-px bg-[#3b8c5e] opacity-60" />
-              <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] text-[#3b8c5e] uppercase">
+            <div className="flex items-center justify-center gap-4 mb-5">
+              <span className="w-6 h-px bg-[#3b8c5e] opacity-60" />
+              <span className="text-[10px] tracking-[0.2em] text-[#3b8c5e] uppercase">
                 Pilares
               </span>
-              <span className="w-6 md:w-8 h-px bg-[#3b8c5e] opacity-60" />
+              <span className="w-6 h-px bg-[#3b8c5e] opacity-60" />
             </div>
 
             <h2
-              className="text-lg md:text-xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-tight mb-6 md:mb-8"
+              className="text-xl md:text-4xl font-black text-white uppercase leading-tight mb-4"
               style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
             >
               Liderando desde <br />
               <span className="text-[#C9A84C]">el Ser</span>
             </h2>
 
-            <p className="text-sm md:text-base text-slate-400 leading-relaxed font-light">
+            <p className="text-sm text-slate-400 font-light">
               Mentoring y Autodesarrollo
             </p>
           </div>
-          {/* Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+
+          {/* CARDS */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {pillars.map((pillar) => (
               <div
                 key={pillar.number}
-                className="group relative overflow-hidden cursor-pointer
-                aspect-[4/3] sm:aspect-[3/4]"
+                className="group relative overflow-hidden rounded-xl md:rounded-2xl"
               >
-                <Image
-                  src={pillar.image}
-                  alt={pillar.alt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                  className="object-cover
-                  grayscale group-hover:grayscale-0 group-active:grayscale-0
-                  group-hover:scale-110 group-active:scale-105
-                  transition-all duration-700"
-                />
+                {/* IMAGEN */}
+                <div className="relative w-full h-[220px] md:h-full md:aspect-[3/4]">
+                  <Image
+                    src={pillar.image}
+                    alt={pillar.alt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
 
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-background-dark via-background-dark/50 to-transparent" />
+                {/* OVERLAY FUERTE (clave mobile) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent md:from-background-dark md:via-background-dark/50" />
 
-                {/* Glow dorado */}
-                <div
-                  className="absolute inset-0 z-10 opacity-0
-                group-hover:opacity-100 group-active:opacity-100
-                transition-opacity duration-700
-                bg-[radial-gradient(ellipse_at_bottom,rgba(201,168,76,0.35)_0%,transparent_70%)]"
-                />
-
-                {/* Shimmer */}
-                <div
-                  className="absolute inset-0 z-10
-                bg-[linear-gradient(105deg,transparent_40%,rgba(201,168,76,0.15)_50%,transparent_60%)]
-                translate-x-[-100%] group-hover:translate-x-[100%] group-active:translate-x-[100%]
-                transition-transform duration-1000 ease-in-out"
-                />
-
-                {/* Borde inferior */}
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-px z-20
-                bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent
-                scale-x-0 group-hover:scale-x-100 group-active:scale-x-100
-                transition-transform duration-700"
-                />
-
-                {/* Contenido — siempre visible en mobile */}
-                <div className="absolute bottom-0 left-0 p-4 sm:p-6 md:p-8 z-20">
+                {/* CONTENIDO */}
+                <div className="absolute bottom-0 left-0 p-4 md:p-6 z-20">
+                  {/* NUMERO */}
                   <span
-                    className="text-2xl sm:text-3xl md:text-5xl font-light mb-2 md:mb-4 block
-                    text-white/20 group-hover:text-[#C9A84C] group-active:text-[#C9A84C]
-                    transition-colors duration-300"
+                    className="text-3xl md:text-5xl font-light mb-2 block text-[#C9A84C]"
                     style={{
                       fontFamily: "'Libre Baskerville', Georgia, serif",
                     }}
                   >
                     {pillar.number}
                   </span>
+
+                  {/* TITULO */}
                   <h3
-                    className="text-base sm:text-lg md:text-2xl font-bold text-white mb-2 leading-tight"
+                    className="text-lg md:text-xl font-bold text-white mb-2 leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
                     style={{
                       fontFamily: "'Libre Baskerville', Georgia, serif",
                     }}
                   >
                     {pillar.title}
                   </h3>
-                  <div
-                    className="w-5 md:w-6 h-px bg-[#C9A84C] mb-2 md:mb-3
-                  scale-x-0 group-hover:scale-x-100 group-active:scale-x-100
-                  transition-transform duration-500 origin-left"
-                  />
-                  {/* Descripción visible siempre en mobile */}
-                  <p
-                    className="text-slate-300 text-s leading-relaxed font-light max-w-xs
-                  md:opacity-0 md:group-hover:opacity-100
-                  transition-opacity duration-300 delay-150"
-                  >
+
+                  {/* LINEA */}
+                  <div className="w-8 h-px bg-[#C9A84C] mb-2" />
+
+                  {/* DESCRIPCION */}
+                  <p className="text-sm text-white/80 leading-relaxed font-light md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                     {pillar.description}
                   </p>
                 </div>
+
+                {/* EFECTOS SOLO DESKTOP */}
+                <div
+                  className="hidden md:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700
+                  bg-[radial-gradient(ellipse_at_bottom,rgba(201,168,76,0.35)_0%,transparent_70%)]"
+                />
+
+                <div
+                  className="hidden md:block absolute bottom-0 left-0 right-0 h-px
+                  bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent
+                  scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
+                />
               </div>
             ))}
           </div>
 
-          {/* Puente narrativo */}
-          <div className="mt-12 md:mt-24 text-center max-w-2xl mx-auto px-4 md:px-0">
+          {/* FRASE FINAL */}
+          <div className="mt-12 md:mt-24 text-center max-w-2xl mx-auto px-4">
             <p
-              className="text-base md:text-2xl lg:text-3xl text-slate-300 font-light leading-relaxed italic"
+              className="text-base md:text-2xl text-slate-300 font-light italic leading-relaxed"
               style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
             >
               {bridgeQuote}
             </p>
-            <div className="w-10 md:w-12 h-px bg-[#C9A84C] mx-auto mt-6 md:mt-8 opacity-60" />
+
+            <div className="w-10 h-px bg-[#C9A84C] mx-auto mt-6 opacity-60" />
           </div>
         </div>
       </div>
