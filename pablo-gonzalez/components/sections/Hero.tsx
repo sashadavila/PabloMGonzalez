@@ -11,7 +11,7 @@ const subtitle2 =
 
 export function Hero() {
   return (
-    <section className="relative w-full h-[90vh] md:h-screen overflow-hidden">
+    <section className="relative w-full min-h-[707px] flex items-center overflow-hidden">
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0">
         {/* sombras */}
