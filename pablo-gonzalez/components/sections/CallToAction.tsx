@@ -2,7 +2,10 @@ import Link from "next/link";
 
 export default function CallToAction() {
   return (
-    <section className="py-16 md:py-24 px-5 md:px-6 border-t border-primary/10">
+    <section
+      id="contacto"
+      className="py-16 md:py-24 px-5 md:px-6 border-t border-primary/10"
+    >
       <div className="max-w-5xl mx-auto bg-primary/10 rounded-2xl md:rounded-3xl p-8 md:p-20 text-center border border-primary/20">
         <h2 className="text-2xl md:text-5xl font-black text-white mb-6">
           ¿Listo para el Siguiente Nivel de{" "}

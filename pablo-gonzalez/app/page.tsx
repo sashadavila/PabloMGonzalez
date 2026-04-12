@@ -12,6 +12,7 @@ export default function Home() {
       <Navbar
         links={[
           { label: "Inicio", href: "#top" },
+          { label: "¿Quienes Somos?", href: "#quienesSomos" },
           { label: "Servicios", href: "#servicios" },
         ]}
         ctaLabel="Contactar"

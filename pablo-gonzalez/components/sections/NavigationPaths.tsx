@@ -42,7 +42,7 @@ export function NavigationPaths() {
           <div className="flex items-center gap-4">
             <span className="w-6 md:w-8 h-px bg-[#3b8c5e] opacity-60" />
             <span className="text-[10px] md:text-xs tracking-[0.2em] text-[#3b8c5e] uppercase">
-              Ejes Estrategicos
+              Servicios
             </span>
           </div>
 

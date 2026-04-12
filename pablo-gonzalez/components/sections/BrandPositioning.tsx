@@ -39,7 +39,7 @@ const p4 =
 export function BrandPositioning() {
   return (
     <section
-      id="filosofia"
+      id="quienesSomos"
       className="relative py-16 md:py-24 px-5 md:px-6 bg-background-dark"
     >
       {/* ── FONDO ── */}
@@ -134,6 +134,12 @@ export function BrandPositioning() {
         <div className="space-y-8 md:space-y-12">
           <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-16 items-center">
             <div className="space-y-4 md:space-y-6 max-w-xl">
+              <div className="flex items-center gap-4">
+                <span className="w-6 md:w-8 h-px bg-primary opacity-60" />
+                <span className="text-[10px] md:text-xs font-medium tracking-[0.25em] text-primary uppercase">
+                  Metodología
+                </span>
+              </div>
               <h2
                 className="text-lg md:text-xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-none"
                 style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
