@@ -216,7 +216,6 @@ export default function DeportistasPage() {
         links={[
           { label: "Programas", href: "#programas" },
           { label: "Metodología", href: "#metodologia" },
-          { label: "Blog", href: "#blog" },
         ]}
         ctaLabel="Optimizar mi Rendimiento"
         ctaHref="#contacto"
