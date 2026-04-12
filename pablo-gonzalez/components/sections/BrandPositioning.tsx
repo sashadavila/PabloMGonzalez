@@ -40,18 +40,10 @@ export function BrandPositioning() {
   return (
     <section
       id="filosofia"
-      className="relative py-16 md:py-24 px-4 md:px-6 bg-background-dark"
+      className="relative py-16 md:py-24 px-5 md:px-6 bg-background-dark"
     >
       {/* ── FONDO ── */}
       <div className="absolute inset-0 -z-10">
-        <Image
-          src="/brujula.png"
-          alt="Background"
-          fill
-          priority
-          className="object-cover"
-        />
-
         {/* Overlay con degradé superior e inferior */}
         <div
           className="absolute inset-0 
@@ -84,7 +76,7 @@ export function BrandPositioning() {
               />
             </div>
             <div className="relative group order-2 lg:order-1">
-              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden">
+              <div className="relative w-full h-[260px] sm:h-[320px] md:h-[500px] lg:h-[600px]">
                 <Image
                   src="/Foto.jpg"
                   alt="Pablo González"
@@ -100,7 +92,7 @@ export function BrandPositioning() {
           </div>
 
           {/* Texto */}
-          <div className="order-1 lg:order-2 space-y-5 md:space-y-8">
+          <div className="order-1 lg:order-2 space-y-4 md:space-y-8">
             <div className="flex items-center gap-4">
               <span className="w-6 md:w-8 h-px bg-primary opacity-60" />
               <span className="text-[10px] md:text-xs font-medium tracking-[0.25em] text-primary uppercase">

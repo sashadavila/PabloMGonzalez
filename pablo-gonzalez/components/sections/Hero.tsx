@@ -11,7 +11,7 @@ const subtitle2 =
 
 export function Hero() {
   return (
-    <section className="relative w-full overflow-hidden">
+    <section className="relative w-full overflow-hidden pt-20 md:pt-24">
       {/* ── MOBILE ── */}
       <div className="block md:hidden">
         <div className="relative w-full aspect-[16/9]">
@@ -19,7 +19,7 @@ export function Hero() {
             src="/Resiliencia.png"
             alt="Liderazgo"
             fill
-            className="object-cover object-center"
+            className="object-cover object-[center_top]"
             priority
             quality={100}
             unoptimized

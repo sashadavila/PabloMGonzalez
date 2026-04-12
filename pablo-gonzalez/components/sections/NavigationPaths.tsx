@@ -3,7 +3,6 @@ import Link from "next/link";
 const PATHS = [
   {
     href: "/personas",
-    icon: "person",
     title: "Personas",
     eyebrow: "Mentoring Individual",
     description:
@@ -12,7 +11,6 @@ const PATHS = [
   },
   {
     href: "/empresas",
-    icon: "corporate_fare",
     title: "Empresas",
     eyebrow: "Consultoría Corporativa",
     description:
@@ -21,7 +19,6 @@ const PATHS = [
   },
   {
     href: "/deportistas",
-    icon: "sports",
     title: "Deportistas",
     eyebrow: "Alto Rendimiento",
     description:
@@ -35,134 +32,55 @@ const subtitle =
 
 export function NavigationPaths() {
   return (
-    <section className="relative z-30 px-4 md:px-6 py-14 md:py-24 bg-white/[0.02] border-t border-white/5">
+    <section
+      id="servicios"
+      className="scroll-mt-24 relative z-30 px-5 md:px-6 py-16 md:py-24 bg-white/[0.02] border-t border-white/5"
+    >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="mb-8 md:mb-16 space-y-4 md:space-y-6">
+        <div className="mb-10 md:mb-16 space-y-4 md:space-y-6">
           <div className="flex items-center gap-4">
             <span className="w-6 md:w-8 h-px bg-[#3b8c5e] opacity-60" />
-            <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] text-[#3b8c5e] uppercase">
+            <span className="text-[10px] md:text-xs tracking-[0.2em] text-[#3b8c5e] uppercase">
               Ejes Estrategicos
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 items-end">
-            <h2
-              className="text-lg md:text-xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-none"
-              style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
-            >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-end">
+            <h2 className="text-xl md:text-2xl lg:text-4xl font-black text-white uppercase tracking-tight">
               Tres pilares de <span className="text-[#C9A84C]">Ejecucion</span>
             </h2>
 
-            <div className="lg:text-right">
-              <p
-                className="text-sm md:text-base text-slate-400 leading-relaxed font-light"
-                style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
-              >
-                {subtitle}
-              </p>
-              <div className="flex lg:justify-end mt-3">
-                <span className="w-6 md:w-8 h-px bg-[#3b8c5e] opacity-40" />
-              </div>
-            </div>
+            <p className="text-sm md:text-base text-slate-400 leading-relaxed">
+              {subtitle}
+            </p>
           </div>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
           {PATHS.map((path, index) => (
             <Link
               key={path.href}
               href={path.href}
-              className="group relative overflow-hidden bg-background-dark p-6 md:p-10
-rounded-xl md:rounded-2xl
-border border-white/5
-shadow-[0_4px_20px_rgba(0,0,0,0.4)]
-hover:shadow-[0_10px_40px_rgba(0,0,0,0.7)]
-transition-all duration-500
-hover:bg-white/[0.03]"
+              className="group bg-background-dark p-5 md:p-10 rounded-xl md:rounded-2xl border border-white/5 hover:bg-white/[0.03] transition"
             >
-              {/* Shimmer */}
-              <div
-                className="absolute inset-0 z-0 pointer-events-none
-                bg-[linear-gradient(105deg,transparent_40%,rgba(201,168,76,0.07)_50%,transparent_60%)]
-                translate-x-[-100%] group-hover:translate-x-[100%] group-active:translate-x-[100%]
-                transition-transform duration-1000 ease-in-out"
-              />
+              <span className="text-xs text-white/20 mb-4 block">
+                0{index + 1}
+              </span>
 
-              {/* Glow */}
-              <div
-                className="absolute inset-0 z-0 pointer-events-none opacity-0
-                group-hover:opacity-100 group-active:opacity-100
-                transition-opacity duration-700
-                bg-[radial-gradient(ellipse_at_bottom,rgba(201,168,76,0.08)_0%,transparent_70%)]"
-              />
+              <span className="text-[10px] md:text-xs text-[#C9A84C] uppercase mb-2 block">
+                {path.eyebrow}
+              </span>
 
-              {/* Línea superior */}
-              <div
-                className="absolute top-0 left-0 right-0 h-px z-10
-                bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent
-                scale-x-0 group-hover:scale-x-100 group-active:scale-x-100
-                transition-transform duration-700"
-              />
+              <h2 className="text-xl md:text-3xl font-black text-white mb-3 group-hover:text-[#E0BD6A] transition">
+                {path.title}
+              </h2>
 
-              {/* Línea inferior */}
-              <div
-                className="absolute bottom-0 left-0 right-0 h-px z-10
-                bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent
-                scale-x-0 group-hover:scale-x-100 group-active:scale-x-100
-                transition-transform duration-700"
-              />
+              <p className="text-slate-400 text-sm mb-6">{path.description}</p>
 
-              <div className="relative z-10">
-                <span
-                  className="text-xs tracking-[0.2em] text-white/10 font-medium mb-4 md:mb-6 block"
-                  style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
-                >
-                  0{index + 1}
-                </span>
-
-                <span className="text-[10px] md:text-xs tracking-[0.18em] text-[#C9A84C] uppercase font-medium mb-2 md:mb-3 block opacity-70">
-                  {path.eyebrow}
-                </span>
-
-                <h2
-                  className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight mb-3 md:mb-4 leading-none
-                    group-hover:text-[#E0BD6A] group-active:text-[#E0BD6A]
-                    transition-colors duration-300"
-                  style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
-                >
-                  {path.title}
-                </h2>
-
-                <div
-                  className="w-6 md:w-8 h-px bg-[#C9A84C]/30 mb-4 md:mb-6
-                  group-hover:bg-[#C9A84C] group-active:bg-[#C9A84C]
-                  transition-colors duration-500"
-                />
-
-                <p
-                  className="text-slate-500 text-xs md:text-sm leading-relaxed mb-8 md:mb-10 font-light"
-                  style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
-                >
-                  {path.description}
-                </p>
-
-                <div
-                  className="flex items-center gap-2 text-[#3b8c5e]
-                  group-hover:text-[#C9A84C] group-active:text-[#C9A84C]
-                  font-bold uppercase tracking-[0.15em] text-xs
-                  group-hover:gap-4 group-active:gap-4
-                  transition-all duration-300"
-                >
-                  {path.cta}
-                  <span
-                    className="material-symbols-outlined"
-                    style={{ fontSize: "14px" }}
-                  >
-                    arrow_forward
-                  </span>
-                </div>
+              <div className="text-[#3b8c5e] text-xs uppercase font-bold group-hover:text-[#C9A84C] transition">
+                {path.cta} →
               </div>
             </Link>
           ))}
