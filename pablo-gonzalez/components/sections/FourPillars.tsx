@@ -1,36 +1,46 @@
+import { number } from "framer-motion";
 import Image from "next/image";
 
 const pillars = [
   {
     number: "01",
-    title: "Credibilidad Auténtica",
+    title: "Mentoring Individual y de Alto Impacto",
     description:
-      "Más allá de la percepción. Construyendo un núcleo de verdad que resuena con cada parte interesada.",
+      "Acompañamiento personalizado diseñado para desbloquear el potencial latente a través de sesiones estratégicas",
     image: "/ICONO.png",
-    alt: "Credibilidad Auténtica",
+    alt: "Mentoring Individual",
   },
   {
     number: "02",
-    title: "Exclusividad",
+    title: "Gestion Emocional y Mindfullnes",
     description:
-      "Estrategias a medida para desafíos de liderazgo únicos. No ofrecemos soluciones genéricas.",
+      "Herramientas avanzadas para el dominio del estado interno y la presencia absoluta en entornos de alta presión",
     image: "/LOGOTIPO1.png",
-    alt: "Exclusividad",
+    alt: "Gestion Emocional y Mindfullnes",
   },
   {
     number: "03",
-    title: "Transformación y Resiliencia",
+    title: "Proposito y Valor",
     description:
-      "Cambio sostenible que perdura a través de la volatilidad del mercado y transiciones personales.",
+      "Alineación estratégica de tu identidad personal con tus objetivos profesionales a largo plazo",
     image: "/ICONO.png",
-    alt: "Transformación y Resiliencia",
+    alt: "Proposito y Valor",
+  },
+
+  {
+    number: "04",
+    title: "Introspección aplicada al Liderazgo",
+    description:
+      "Identificación de patrones inconscientes que limitan el crecimiento profesional y personal",
+    image: "/brujula.png",
+    alt: "Introspección aplicada al Liderazgo",
   },
 ];
 
 const bridgeQuote =
   "El camino hacia tu mejor versión ya existe. Solo necesita ser recorrido con el guía correcto.";
 
-export function ThreePillars() {
+export function FourPillars() {
   return (
     <section id="pilares" className="py-16 md:py-10 bg-background-dark">
       <div className="w-full px-6 md:px-15">
@@ -40,7 +50,7 @@ export function ThreePillars() {
             <div className="flex items-center justify-center gap-4 mb-5 md:mb-6">
               <span className="w-6 md:w-8 h-px bg-[#3b8c5e] opacity-60" />
               <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] text-[#3b8c5e] uppercase">
-                Los Cimientos
+                Pilares
               </span>
               <span className="w-6 md:w-8 h-px bg-[#3b8c5e] opacity-60" />
             </div>
@@ -49,18 +59,16 @@ export function ThreePillars() {
               className="text-lg md:text-xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-tight mb-6 md:mb-8"
               style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
             >
-              Tres pilares, <br />
-              <span className="text-[#C9A84C]">Un solo camino.</span>
+              Liderando desde <br />
+              <span className="text-[#C9A84C]">el Ser</span>
             </h2>
 
             <p className="text-sm md:text-base text-slate-400 leading-relaxed font-light">
-              Todo proceso de transformación genuina descansa sobre tres
-              verdades inamovibles. No son conceptos, son el resultado de
-              haberlos vivido, perdido y reconquistado.
+              Mentoring y Autodesarrollo
             </p>
           </div>
           {/* Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
             {pillars.map((pillar) => (
               <div
                 key={pillar.number}
@@ -125,13 +133,13 @@ export function ThreePillars() {
                     {pillar.title}
                   </h3>
                   <div
-                    className="w-6 md:w-8 h-px bg-[#C9A84C] mb-2 md:mb-3
+                    className="w-5 md:w-6 h-px bg-[#C9A84C] mb-2 md:mb-3
                   scale-x-0 group-hover:scale-x-100 group-active:scale-x-100
                   transition-transform duration-500 origin-left"
                   />
                   {/* Descripción visible siempre en mobile */}
                   <p
-                    className="text-slate-300 text-xs leading-relaxed font-light max-w-xs
+                    className="text-slate-300 text-s leading-relaxed font-light max-w-xs
                   md:opacity-0 md:group-hover:opacity-100
                   transition-opacity duration-300 delay-150"
                   >

@@ -1,4 +1,4 @@
-import { Footer, Navbar } from "@/components/sections";
+import { Footer, FourPillars, Navbar } from "@/components/sections";
 import { AdictionsSection } from "@/components/sections/person/AdictionSection";
 import ContactForm from "@/components/sections/person/ContactForm";
 import HeroPersons from "@/components/sections/person/HeroPersons";
@@ -12,80 +12,108 @@ export const metadata: Metadata = {
     "Asesoría individual de alto nivel. Transforma tu potencial en resultados extraordinarios a través de una evolución diseñada para el líder que busca propósito y claridad estratégica.",
 };
 
-// ─── Sub-components ──────────────────────────────────────────────────────────
-
-const checkItems = [
-  {
-    title: "Estrategia de Vida",
-    description:
-      "Diseño de una hoja de ruta clara para tus ambiciones personales y profesionales.",
-  },
-  {
-    title: "Inteligencia Emocional",
-    description:
-      "Gestión avanzada de estados internos para la toma de decisiones críticas.",
-  },
-];
-
 function ValueProp() {
   return (
-    <section className="py-32 bg-[#0d0d0d] border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <h2 className="font-serif text-4xl md:text-5xl text-white mb-8">
-              El arte del crecimiento <br />
-              <span className="text-[#c5a059]">personalizado</span>
+    <section id="valor" className="py-16 md:py-24 px-5 md:px-6 bg-[#0d0d0d] ">
+      <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-16 items-center">
+          {/* TEXTO */}
+          <div className="space-y-4 md:space-y-6 max-w-xl">
+            <div className="flex items-center gap-4">
+              <span className="w-6 md:w-8 h-px bg-[#3b8c5e] opacity-60" />
+              <span className="text-[10px] md:text-xs font-medium tracking-[0.25em] text-[#3b8c5e] uppercase">
+                Valor
+              </span>
+            </div>
+
+            <h2
+              className="text-lg md:text-xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-none"
+              style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
+            >
+              La resiliencia no es resistir{" "}
+              <span className="text-[#C9A84C]">es renacer con intención</span>
             </h2>
 
-            <p className="text-slate-400 text-lg leading-relaxed mb-8">
-              No hay fórmulas genéricas para el éxito individual. Mi enfoque se
-              centra en desgranar tus fortalezas intrínsecas, alinear tus
-              valores con tus metas profesionales y construir una estructura de
-              liderazgo que sea auténtica y sostenible.
+            <p className="text-sm md:text-base text-slate-100 leading-relaxed font-light">
+              Entiendo que el camino del liderazgo y el crecimiento personal a
+              menudo está marcado por cicatrices que preferiríamos ocultar. Sin
+              embargo, en mi experiencia acompañando a cientos de personas, he
+              descubierto que esas mismas heridas son la fuente de nuestra mayor
+              autoridad y propósito.
             </p>
 
-            <ul className="space-y-6">
-              {checkItems.map(({ title, description }) => (
-                <li key={title} className="flex gap-4">
-                  <span
-                    className="material-symbols-outlined text-[#3b8c5e] shrink-0"
-                    aria-hidden="true"
-                  >
-                    check_circle
-                  </span>
-                  <div>
-                    <h4 className="font-bold text-white mb-1">{title}</h4>
-                    <p className="text-sm text-slate-500">{description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <p className="text-sm md:text-base text-slate-100 leading-relaxed font-light">
+              Mi enfoque combina la profundidad de la introspección con
+              herramientas prácticas de gestión emocional para que dejes de ver
+              tu pasado como una carga y comiences a utilizarlo como el
+              combustible de tu nueva identidad.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="aspect-[3/4] bg-[#161616] border border-white/5 p-8 flex flex-col justify-end">
+          {/* CARDS */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+            {/* CARD 1 */}
+            <div
+              className="group relative overflow-hidden p-6 rounded-2xl 
+    bg-[#1a1a1a] border border-white/5
+    h-[220px] md:h-[240px]
+    flex flex-col justify-end
+    shadow-[0_4px_20px_rgba(0,0,0,0.4)]
+    hover:shadow-[0_10px_40px_rgba(0,0,0,0.7)]
+    transition-all duration-500 ease-out
+    hover:-translate-y-2 hover:scale-[1.02]"
+            >
+              <div
+                className="absolute inset-0 pointer-events-none
+      bg-[radial-gradient(circle_at_50%_100%,rgba(201,168,76,0.12),transparent_60%)]
+      opacity-0 group-hover:opacity-100
+      transition-opacity duration-500"
+              />
+
               <span
-                className="material-symbols-outlined text-[#c5a059] text-4xl mb-4"
-                aria-hidden="true"
+                className="material-symbols-outlined text-[#c5a059] text-3xl mb-4 
+      transition-all duration-300 group-hover:scale-110"
               >
                 psychology
               </span>
-              <h3 className="font-bold text-xl text-white">Mentalidad</h3>
-              <p className="text-xs text-slate-500 mt-2">
+
+              <h3 className="text-base font-bold text-white mb-2">
+                Mentalidad
+              </h3>
+
+              <p className="text-sm text-slate-400">
                 Reconfiguración de paradigmas limitantes.
               </p>
             </div>
 
-            <div className="aspect-[3/4] bg-[#3b8c5e]/10 border border-[#3b8c5e]/20 p-8 flex flex-col justify-end translate-y-8">
+            {/* CARD 2 */}
+            <div
+              className="group relative overflow-hidden p-6 rounded-2xl 
+    bg-[#1a1a1a] border border-white/5
+    h-[220px] md:h-[240px]
+    flex flex-col justify-end
+    shadow-[0_4px_20px_rgba(0,0,0,0.4)]
+    hover:shadow-[0_10px_40px_rgba(0,0,0,0.7)]
+    transition-all duration-500 ease-out
+    hover:-translate-y-2 hover:scale-[1.02]"
+            >
+              <div
+                className="absolute inset-0 pointer-events-none
+      bg-[radial-gradient(circle_at_50%_100%,rgba(59,140,94,0.15),transparent_60%)]
+      opacity-0 group-hover:opacity-100
+      transition-opacity duration-500"
+              />
+
               <span
-                className="material-symbols-outlined text-[#3b8c5e] text-4xl mb-4"
-                aria-hidden="true"
+                className="material-symbols-outlined text-[#3b8c5e] text-3xl mb-4 
+      transition-all duration-300 group-hover:scale-110 group-hover:text-[#C9A84C]"
               >
                 trending_up
               </span>
-              <h3 className="font-bold text-xl text-white">Impacto</h3>
-              <p className="text-xs text-slate-500 mt-2">
+
+              <h3 className="text-base font-bold text-white mb-2">Impacto</h3>
+
+              <p className="text-sm text-slate-400">
                 Escalamiento de resultados tangibles.
               </p>
             </div>
@@ -96,168 +124,114 @@ function ValueProp() {
   );
 }
 
+// ─── Sección: Elegí tu camino ─────────────────────────────────────────────────
 // ─────────────────────────────────────────────────────────────────────────────
-
-type Pillar = {
-  icon: string;
-  title: string;
-  description: string;
-  accentColor: "gold" | "green";
-};
-
-const pillars: Pillar[] = [
+const PATHS = [
   {
-    icon: "center_focus_strong",
-    title: "Visión Estratégica",
+    href: "#liderazgo",
+    title: "Personas",
+    eyebrow: "Liderazgo Personal",
     description:
-      "Claridad total sobre tus objetivos. Eliminamos el ruido para enfocar tu energía en lo que realmente mueve la aguja.",
-    accentColor: "gold",
+      "Para quienes buscan sanar, crecer y liderar su propia vida con propósito y autenticidad.",
+    cta: "Explorar Crecimiento",
   },
   {
-    icon: "favorite",
-    title: "Gestión Emocional",
+    href: "#adicciones",
+    title: "Proceso de Acompañamiento en Adicciones",
+    eyebrow: "Acompañamiento",
     description:
-      "Dominio propio para liderar con impacto y serenidad, incluso en entornos de alta presión e incertidumbre.",
-    accentColor: "green",
-  },
-  {
-    icon: "bolt",
-    title: "Alto Rendimiento",
-    description:
-      "Optimización de hábitos y sistemas personales para una productividad sostenible y de largo recorrido.",
-    accentColor: "gold",
+      "Para quienes buscan una salida real y sostenible. Acompañamiento humano, clínico y sin juicios.",
+    cta: "Ver Acompañamiento",
   },
 ];
 
-function PillarCard({ icon, title, description, accentColor }: Pillar) {
-  const isGold = accentColor === "gold";
-  const borderColor = isGold
-    ? "border-[#c5a059] text-[#c5a059] group-hover:bg-[#c5a059] group-hover:text-[#0d0d0d]"
-    : "border-[#3b8c5e] text-[#3b8c5e] group-hover:bg-[#3b8c5e] group-hover:text-white";
-
-  return (
-    <div className="bg-[#0d0d0d] p-12 hover:bg-[#161616] transition-colors group">
-      <div
-        className={`w-12 h-12 flex items-center justify-center border mb-8 transition-all ${borderColor}`}
-      >
-        <span className="material-symbols-outlined" aria-hidden="true">
-          {icon}
-        </span>
-      </div>
-      <h3 className="text-2xl font-bold text-white mb-4">{title}</h3>
-      <p className="text-slate-400 leading-relaxed">{description}</p>
-    </div>
-  );
-}
-
-function ServicePillars() {
-  return (
-    <section className="py-32 bg-[#161616]/30">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-24">
-          <span className="text-[#3b8c5e] font-bold tracking-[0.3em] text-xs uppercase mb-4 block">
-            Pilares de Trabajo
-          </span>
-          <h2 className="font-serif text-4xl md:text-6xl text-white">
-            Metodología para el Líder
-          </h2>
-        </div>
-
-        <div className="grid md:grid-cols-3 border border-white/5 divide-y md:divide-y-0 md:divide-x divide-white/5">
-          {pillars.map((pillar) => (
-            <PillarCard key={pillar.title} {...pillar} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// ─── Sección: Elegí tu camino ─────────────────────────────────────────────────
-// ─────────────────────────────────────────────────────────────────────────────
-
 function ChoosePath() {
   return (
-    <section className="py-32 bg-[#0d0d0d] border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <span className="text-[#c5a059] font-bold tracking-[0.3em] text-xs uppercase mb-4 block">
-            ¿Dónde está tu batalla?
-          </span>
-          <h2 className="font-serif text-4xl md:text-6xl text-white mb-6">
-            Elegí tu camino.
-          </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            Cada proceso es único. Cada historia merece un acompañamiento a
-            medida. Encontrá el espacio que fue diseñado para vos.
-          </p>
+    <section
+      id="servicios"
+      className="relative z-30 px-5 md:px-6 py-16 md:py-24 bg-[#0d0d0d] border-t border-white/5"
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* HEADER */}
+        <div className="mb-10 md:mb-16 space-y-4 md:space-y-6">
+          <div className="flex items-center gap-4">
+            <span className="w-6 md:w-8 h-px bg-[#3b8c5e] opacity-60" />
+            <span className="text-[10px] md:text-xs tracking-[0.2em] text-[#3b8c5e] uppercase">
+              ¿Dónde está tu batalla?
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-end">
+            <h2 className="text-xl md:text-2xl lg:text-4xl font-black text-white uppercase tracking-tight">
+              Elegí tu <span className="text-[#C9A84C]">camino</span>
+            </h2>
+
+            <p className="text-sm md:text-base text-slate-400 leading-relaxed">
+              Cada proceso es único. Cada historia merece un acompañamiento a
+              medida.
+            </p>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-1 border border-white/5">
-          {/* Liderazgo Personal */}
-          <Link
-            href="#liderazgo"
-            className="group relative overflow-hidden bg-[#161616] p-12 flex flex-col justify-between min-h-[420px] hover:bg-[#1a1a1a] transition-all duration-300 border-r border-white/5"
-          >
-            <div>
-              <span className="text-[#c5a059] font-black text-5xl mb-8 block opacity-30 group-hover:opacity-60 transition-opacity">
-                01
-              </span>
-              <span className="text-[#c5a059] font-bold tracking-[0.3em] text-xs uppercase mb-4 block">
-                Liderazgo Personal
-              </span>
-              <h3 className="font-serif text-3xl md:text-4xl text-white mb-6">
-                Personas
-              </h3>
-              <p className="text-slate-400 leading-relaxed max-w-sm">
-                Para quienes buscan sanar, crecer y liderar su propia vida con
-                propósito y autenticidad.
-              </p>
-            </div>
-            <div className="flex items-center gap-3 text-[#3b8c5e] font-bold text-sm tracking-widest uppercase mt-10">
-              Explorar Crecimiento
-              <span
-                className="material-symbols-outlined group-hover:translate-x-1 transition-transform"
-                aria-hidden="true"
-              >
-                arrow_forward
-              </span>
-            </div>
-            <div className="absolute bottom-0 left-0 h-1 w-0 bg-[#c5a059] group-hover:w-full transition-all duration-500" />
-          </Link>
+        {/* CARDS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+          {PATHS.map((path, index) => (
+            <Link
+              key={path.href}
+              href={path.href}
+              className="group relative overflow-hidden 
+      bg-[#161616] p-6 md:p-10 
+      rounded-xl md:rounded-2xl 
+      border border-white/5 
+      hover:bg-white/[0.03] 
+      transition-all duration-500
 
-          {/* Superación de Adicciones */}
-          <Link
-            href="#adicciones"
-            className="group relative overflow-hidden bg-[#0f1a14] p-12 flex flex-col justify-between min-h-[420px] hover:bg-[#131f18] transition-all duration-300"
-          >
-            <div>
-              <span className="text-[#3b8c5e] font-black text-5xl mb-8 block opacity-30 group-hover:opacity-60 transition-opacity">
-                02
-              </span>
-              <span className="text-[#3b8c5e] font-bold tracking-[0.3em] text-xs uppercase mb-4 block">
-                Acompañamiento
-              </span>
-              <h3 className="font-serif text-3xl md:text-4xl text-white mb-6">
-                Recuperación
-              </h3>
-              <p className="text-slate-400 leading-relaxed max-w-sm">
-                Para quienes buscan una salida real y sostenible. Acompañamiento
-                humano, clínico y sin juicios.
-              </p>
-            </div>
-            <div className="flex items-center gap-3 text-[#3b8c5e] font-bold text-sm tracking-widest uppercase mt-10">
-              Ver Acompañamiento
-              <span
-                className="material-symbols-outlined group-hover:translate-x-1 transition-transform"
-                aria-hidden="true"
-              >
-                arrow_forward
-              </span>
-            </div>
-            <div className="absolute bottom-0 left-0 h-1 w-0 bg-[#3b8c5e] group-hover:w-full transition-all duration-500" />
-          </Link>
+      flex flex-col justify-between
+      min-h-[280px] md:min-h-[340px]" // 👈 clave
+            >
+              {/* Glow */}
+              <div
+                className="absolute inset-0 pointer-events-none
+        bg-[radial-gradient(circle_at_50%_100%,rgba(201,168,76,0.15),transparent_60%)]
+        opacity-0 group-hover:opacity-100
+        transition-opacity duration-500"
+              />
+
+              {/* ── TOP ── */}
+              <div>
+                <span className="text-xs text-white/20 mb-4 block">
+                  0{index + 1}
+                </span>
+
+                <span className="text-[10px] md:text-xs text-[#C9A84C] uppercase mb-3 block tracking-[0.25em]">
+                  {path.eyebrow}
+                </span>
+
+                <h2
+                  className="text-2xl md:text-4xl font-semibold text-white mb-4 leading-tight
+          group-hover:text-[#E0BD6A] transition"
+                  style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
+                >
+                  {path.title}
+                </h2>
+
+                <p className="text-slate-400 text-sm md:text-base leading-relaxed max-w-md">
+                  {path.description}
+                </p>
+              </div>
+
+              {/* ── BOTTOM ── */}
+              <div className="flex items-center gap-2 text-[#3b8c5e] text-xs uppercase font-bold tracking-widest mt-8 group-hover:text-[#C9A84C] transition">
+                {path.cta}
+                <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
+                  arrow_forward
+                </span>
+              </div>
+
+              {/* Línea */}
+              <div className="absolute bottom-0 left-0 h-px w-0 bg-[#C9A84C] group-hover:w-full transition-all duration-500" />
+            </Link>
+          ))}
         </div>
       </div>
     </section>
@@ -275,6 +249,9 @@ export default function PersonasPage() {
         accent="green"
         links={[
           { label: "Inicio", href: "#top" },
+          { label: "Valor", href: "#valor" },
+          { label: "Pilares", href: "#pilares" },
+          { label: "Elegí tu camino", href: "#servicios" },
           { label: "Liderazgo", href: "#liderazgo" },
           { label: "Acompañamiento", href: "#adicciones" },
         ]}
@@ -283,7 +260,7 @@ export default function PersonasPage() {
       />
       <HeroPersons />
       <ValueProp />
-      <ServicePillars />
+      <FourPillars />
       <ChoosePath />
       <LiderazgoSection />
       <AdictionsSection />

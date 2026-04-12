@@ -18,7 +18,7 @@ export default function CallToAction() {
         </p>
 
         <Link
-          href="#contacto"
+          href="personas/#contacto"
           className="bg-primary text-white px-8 md:px-12 py-4 md:py-5 text-sm font-bold uppercase rounded-lg"
         >
           Contactar
