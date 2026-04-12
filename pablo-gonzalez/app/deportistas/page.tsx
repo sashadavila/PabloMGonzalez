@@ -70,13 +70,6 @@ const methodItems: MethodItem[] = [
   },
 ];
 
-const mobileNavLinks = [
-  { icon: "home", label: "Inicio", href: "/" },
-  { icon: "fitness_center", label: "Rendimiento", href: "#metodologia" },
-  { icon: "school", label: "Academy", href: "#programas" },
-  { icon: "contact_page", label: "Contacto", href: "#contacto" },
-];
-
 // ─────────────────────────────────────────────────────────────────────────────
 
 function Hero() {
@@ -213,32 +206,6 @@ function Methodology() {
   );
 }
 
-function MobileNav() {
-  return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#151d19]/95 border-t border-[#3a8d61]/20 backdrop-blur-md px-4 py-2">
-      <nav
-        aria-label="Navegación móvil"
-        className="flex justify-between items-center max-w-md mx-auto"
-      >
-        {mobileNavLinks.map(({ icon, label, href }, i) => (
-          <Link
-            key={label}
-            href={href}
-            className={`flex flex-col items-center gap-1 ${
-              i === 0 ? "text-[#3a8d61]" : "text-slate-400"
-            }`}
-          >
-            <span className="material-symbols-outlined" aria-hidden="true">
-              {icon}
-            </span>
-            <span className="text-[10px] font-bold">{label}</span>
-          </Link>
-        ))}
-      </nav>
-    </div>
-  );
-}
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function DeportistasPage() {
@@ -261,7 +228,6 @@ export default function DeportistasPage() {
         <ContactFormDeportistas />
       </main>
       <Footer />
-      <MobileNav />
     </>
   );
 }

@@ -48,7 +48,7 @@ export function NavigationPaths() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-end">
             <h2 className="text-xl md:text-2xl lg:text-4xl font-black text-white uppercase tracking-tight">
-              Tres pilares de <span className="text-[#C9A84C]">Ejecucion</span>
+              Áreas de <span className="text-[#C9A84C]">Accion</span>
             </h2>
 
             <p className="text-sm md:text-base text-slate-400 leading-relaxed">
