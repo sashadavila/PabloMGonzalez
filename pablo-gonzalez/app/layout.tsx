@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Pablo González",
     images: [
       {
-        url: "https://pablogonzalez.com/LOGOTIPO1.png",
+        url: "https://pablogonzalez.com",
         width: 1200,
         height: 630,
         alt: "Pablo González Consultoría",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title: "Pablo González | Consultoría de Liderazgo Ético",
     description:
       "Estrategias de alto impacto para líderes que buscan transformación.",
-    images: ["https://pablogonzalez.com/LOGOTIPO1.png"],
+    images: ["/LOGOTIPO1.png"],
   },
 };
 
