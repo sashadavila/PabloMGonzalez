@@ -12,15 +12,32 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Pablo González | Consultoría de Liderazgo Ético",
   description:
-    "Consultor de liderazgo ético para personas y organizaciones. Estrategias de alto impacto para quienes lideran el futuro.",
+    "Estrategias de alto impacto para líderes que buscan transformación.",
+
   openGraph: {
     title: "Pablo González | Consultoría de Liderazgo Ético",
     description:
-      "Estrategias de alto impacto para líderes que buscan transformación auténtica.",
-    url: "https://pablomgonzalez.com",
+      "Estrategias de alto impacto para líderes que buscan transformación.",
+    url: "https://pablogonzalez.com",
     siteName: "Pablo González",
+    images: [
+      {
+        url: "https://pablogonzalez.com/LOGOTIPO1.png",
+        width: 1200,
+        height: 630,
+        alt: "Pablo González Consultoría",
+      },
+    ],
     locale: "es_AR",
     type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Pablo González | Consultoría de Liderazgo Ético",
+    description:
+      "Estrategias de alto impacto para líderes que buscan transformación.",
+    images: ["https://pablogonzalez.com/LOGOTIPO1.png"],
   },
 };
 
