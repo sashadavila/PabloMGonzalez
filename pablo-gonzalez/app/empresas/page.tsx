@@ -25,11 +25,6 @@ type Pillar = {
   items: string[];
 };
 
-type FooterLink = {
-  label: string;
-  href: string;
-};
-
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const stats: Stat[] = [

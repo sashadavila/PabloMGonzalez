@@ -4,10 +4,10 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const subtitle =
-  "Consultoría en liderazgo ético y alto rendimiento para personas, organizaciones, deportistas y talentos gastronómicos";
+  "Consultoría en autodesarrollo, liderazgo, procesos y alto rendimiento";
 
 const subtitle2 =
-  "Transformamos estructuras, decisiones y mentalidad para lograr resultados sostenibles";
+  "Diseño de sistemas y desarrollo humano para contextos de alta exigencia en personas, empresas y deportistas";
 
 export function Hero() {
   return (
@@ -32,7 +32,7 @@ export function Hero() {
         <div className="max-w-3xl space-y-4 md:space-y-6 text-left">
           {/* EYEBROW */}
           <span className="text-[#c5a059] font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase block">
-            Consultoría Estratégica
+            Estrategia - Ética - Resultados
           </span>
 
           {/* TITULO */}
@@ -42,9 +42,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            No creemos en la suerte{" "}
+            No gestionamos suerte{" "}
             <span className="text-[#3b8c5e] not-italic font-bold">
-              creemos en los procesos
+              diseñamos resultados
             </span>
           </motion.h2>
 
