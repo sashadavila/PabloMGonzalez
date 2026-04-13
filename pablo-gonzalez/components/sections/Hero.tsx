@@ -32,7 +32,7 @@ export function Hero() {
         <div className="max-w-3xl space-y-4 md:space-y-6 text-left">
           {/* EYEBROW */}
           <span className="text-[#c5a059] font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase block">
-            Estrategia - Ética - Resultados
+            Consultoria Estrategica
           </span>
 
           {/* TITULO */}
