@@ -42,9 +42,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            No gestionamos suerte{" "}
+            No gestionamos la suerte{" "}
             <span className="text-[#3b8c5e] not-italic font-bold">
-              diseñamos resultados
+              diseñamos sistemas de resultados
             </span>
           </motion.h2>
 
