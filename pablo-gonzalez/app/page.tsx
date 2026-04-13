@@ -13,6 +13,8 @@ export default function Home() {
         links={[
           { label: "Inicio", href: "#top" },
           { label: "¿Quienes Somos?", href: "#quienesSomos" },
+          { label: "Equipo", href: "#equipo" },
+          { label: "Metodologia", href: "#metodologia" },
           { label: "Servicios", href: "#servicios" },
         ]}
         ctaLabel="Contactar"

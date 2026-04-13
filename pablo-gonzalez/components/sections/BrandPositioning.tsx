@@ -3,27 +3,27 @@ import Image from "next/image";
 const features = [
   {
     icon: "corporate_fare",
-    title: "Consultoría",
+    title: "Consultoría Estratégica",
     description:
-      "Guía estratégica para líderes de alto perfil navegando cambios globales complejos.",
+      "Diseñamos y reestructuramos sistemas de gestión para operar con claridad, foco y eficiencia en entornos de alta exigencia.",
   },
   {
     icon: "psychology",
     title: "Crecimiento Personal",
     description:
-      "Desbloqueando el potencial individual mediante coaching riguroso basado en evidencia.",
+      "Trabajamos sobre la mentalidad, la toma de decisiones y la gestión emocional para sostener resultados en contextos de presión.",
   },
   {
     icon: "gavel",
     title: "Ética y Liderazgo",
     description:
-      "Construyendo cimientos sobre la integridad y la credibilidad auténtica duradera.",
+      "Fortalecemos liderazgos basados en integridad, criterio y responsabilidad en la toma de decisiones estratégicas.",
   },
   {
     icon: "auto_graph",
-    title: "Resiliencia",
+    title: "Resiliencia Operativa",
     description:
-      "Forjando la fortaleza mental para prosperar bajo presión extrema y escrutinio.",
+      "Desarrollamos estructuras y hábitos que permiten sostener el rendimiento incluso en escenarios de máxima exigencia.",
   },
 ];
 
@@ -90,10 +90,10 @@ const carolinaPillars = [
 ];
 
 const p3 =
-  "En un mundo saturado de teorías, nosotros elegimos la ejecución disciplinada.  No trabajamos para cualquiera. Colaboramos con líderes, organizaciones y atletas que poseen la valentía de cuestionar su status quo y el hambre de trascender. Si busca soluciones rápidas y superficiales, no somos para usted. Si busca una transformación estructural, bienvenido";
-const p4 =
-  "Creemos que el éxito no es un evento fortuito, sino la consecuencia inevitable de sistemas bien diseñados y ejecutados con disciplina férrea. Donde otros ven problemas insolubles, nosotros identificamos fallos en el proceso que pueden ser optimizados";
+  "En un mundo saturado de teorías, nosotros elegimos la ejecución disciplinada. No trabajamos para cualquiera: colaboramos con líderes, organizaciones y atletas que tienen la valentía de cuestionar su status quo y el compromiso real de sostener el cambio en el tiempo. Si busca soluciones rápidas o superficiales, no somos para usted. Si busca una transformación estructural, está en el lugar correcto.";
 
+const p4 =
+  "Nuestra metodología parte de un principio claro: el alto rendimiento no es un accidente, es el resultado de sistemas diseñados con precisión y ejecutados con disciplina. Donde otros ven problemas aislados, nosotros identificamos fallas en el proceso, intervenimos en la estructura y optimizamos cada decisión hasta convertirla en resultado sostenible.";
 export function BrandPositioning() {
   return (
     <section
@@ -218,7 +218,11 @@ export function BrandPositioning() {
           </div>
 
           {/* Texto Pablo */}
-          <div className="order-1 lg:order-2 space-y-4 md:space-y-6">
+
+          <div
+            id="equipo"
+            className="order-1 lg:order-2 space-y-4 md:space-y-6 scroll-mt-24 md:scroll-mt-32"
+          >
             <div className="flex items-center gap-4">
               <span className="w-6 md:w-8 h-px bg-primary opacity-60" />
               <span className="text-[10px] md:text-xs font-medium tracking-[0.25em] text-primary uppercase">
@@ -377,7 +381,10 @@ export function BrandPositioning() {
         </div>
 
         {/* ── BLOQUE 4: METODOLOGÍA ── */}
-        <div className="space-y-8 md:space-y-12">
+        <div
+          id="metodologia"
+          className="space-y-6 md:space-y-10 scroll-mt-24 md:scroll-mt-32"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-16 items-center">
             <div className="space-y-4 md:space-y-6 max-w-xl">
               <div className="flex items-center gap-4">
