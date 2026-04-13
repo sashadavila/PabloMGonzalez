@@ -27,10 +27,68 @@ const features = [
   },
 ];
 
-const p1 =
-  "Nuestra misión trasciende la simple asesoría. Nos dedicamos a la forja de legados, interviniendo en la estructura misma del pensamiento organizacional y personal";
-const p2 =
-  "Combinamos la precisión de la administración de empresas, la profundidad de la psicología organizacional y la disciplina de la ejecución para intervenir en contextos donde los resultados no pueden depender del azar";
+const pillars = [
+  {
+    icon: "account_tree",
+    title: "Arquitectura de Procesos",
+    description:
+      "Diseñamos y reestructuramos flujos de trabajo que eliminan cuellos de botella y aseguran la escalabilidad del negocio.",
+  },
+  {
+    icon: "language",
+    title: "Gestión Operativa Internacional",
+    description:
+      "Aportamos una experiencia sólida en la articulación de equipos multidisciplinarios y la coordinación de operaciones en mercados complejos.",
+  },
+  {
+    icon: "emoji_events",
+    title: "Liderazgo y Motivación",
+    description:
+      "Aplicamos principios de alto rendimiento para alinear a los equipos con los objetivos estratégicos de la dirección.",
+  },
+];
+
+const pabloAreas = [
+  {
+    title: "Liderazgo con Propósito",
+    description:
+      "Utilizo la inteligencia interpersonal como una herramienta estratégica para gestionar equipos de alto rendimiento y desarrollar culturas organizacionales resilientes.",
+  },
+  {
+    title: "Consultoría Estratégica Externa",
+    description:
+      "Colaboro con empresas de servicios y real estate —como mi actual trabajo con Buena Vida State— en la reingeniería de sus procesos, monitoreo de gestión y optimización estructural.",
+  },
+  {
+    title: "Desarrollo de Negocios",
+    description:
+      "Como socio capitalista en proyectos de alto impacto como Excelsum, aporto visión estratégica y respaldo para el crecimiento de marcas que buscan un estándar de excelencia superior.",
+  },
+  {
+    title: "Disciplina y Alto Rendimiento",
+    description:
+      "Mi vida está marcada por el deporte de alta competencia. Traslado diariamente la resiliencia, el enfoque y la disciplina del básquetbol al mundo de los negocios.",
+  },
+];
+
+const carolinaPillars = [
+  {
+    title: "Articulación de Alto Nivel",
+    description:
+      "Especialista en el soporte estratégico para entornos C-Level y la coordinación de equipos multidisciplinarios.",
+  },
+  {
+    title: "Visión Global y Bilingüe",
+    description:
+      "Dominio absoluto de la dinámica corporativa internacional y negociación multicultural.",
+  },
+  {
+    title: "Precisión Operativa",
+    description:
+      "Expertiz en optimizar procesos, gestionar stakeholders internacionales y garantizar que cada detalle organizacional esté alineado con los objetivos de máxima jerarquía.",
+  },
+];
+
 const p3 =
   "En un mundo saturado de teorías, nosotros elegimos la ejecución disciplinada.  No trabajamos para cualquiera. Colaboramos con líderes, organizaciones y atletas que poseen la valentía de cuestionar su status quo y el hambre de trascender. Si busca soluciones rápidas y superficiales, no somos para usted. Si busca una transformación estructural, bienvenido";
 const p4 =
@@ -44,7 +102,6 @@ export function BrandPositioning() {
     >
       {/* ── FONDO ── */}
       <div className="absolute inset-0 -z-10">
-        {/* Overlay con degradé superior e inferior */}
         <div
           className="absolute inset-0 
           bg-[linear-gradient(to_bottom,rgba(0,0,0,0.95)_0%,rgba(0,0,0,0.6)_30%,rgba(0,0,0,0.6)_70%,rgba(0,0,0,0.95)_100%)]"
@@ -52,10 +109,81 @@ export function BrandPositioning() {
       </div>
 
       <div className="max-w-7xl mx-auto space-y-16 md:space-y-32">
-        {/* ── BLOQUE 1 ── */}
+        {/* ── BLOQUE 1: QUIÉNES SOMOS ── */}
+        <div className="space-y-8 md:space-y-12">
+          <div className="flex items-center gap-4">
+            <span className="w-6 md:w-8 h-px bg-primary opacity-60" />
+            <span className="text-[10px] md:text-xs font-medium tracking-[0.25em] text-primary uppercase">
+              ¿Quiénes somos?
+            </span>
+          </div>
+          <h2
+            className="text-lg md:text-xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-none max-w-3xl"
+            style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
+          >
+            Somos una consultora estratégica enfocada en{" "}
+            <span className="text-[#C9A84C]">
+              maximizar la eficiencia organizacional
+            </span>
+          </h2>
+          <p className="text-sm md:text-base text-slate-100 leading-relaxed font-light max-w-3xl">
+            Combinamos una visión técnica avanzada en administración con una
+            capacidad operativa probada en entornos corporativos de alta
+            exigencia global. Nuestra propuesta se basa en tres pilares
+            fundamentales:
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+            {pillars.map((p) => (
+              <div
+                key={p.title}
+                className="group relative overflow-hidden p-5 md:p-6 
+                   rounded-2xl 
+                    bg-[#1a1a1a] 
+                    border border-white/5
+                    shadow-[0_4px_20px_rgba(0,0,0,0.4)]
+                    hover:shadow-[0_10px_40px_rgba(0,0,0,0.7)]
+                    transition-all duration-500 ease-out
+                    hover:-translate-y-2 hover:scale-[1.02]"
+              >
+                <div
+                  className="absolute inset-0 pointer-events-none
+                    bg-[radial-gradient(circle_at_50%_100%,rgba(201,168,76,0.15),transparent_60%)]
+                    opacity-0 group-hover:opacity-100
+                    transition-opacity duration-500"
+                />
+                <span
+                  className="material-symbols-outlined text-[#3b8c5e] mb-3 md:mb-4 block 
+                    transition-all duration-300 group-hover:scale-110 group-hover:text-[#C9A84C]"
+                  style={{ fontSize: "24px" }}
+                >
+                  {p.icon}
+                </span>
+                <h3
+                  className="text-sm md:text-base font-bold mb-2 text-[#3b8c5e] 
+                    transition-colors duration-300 group-hover:text-[#E0BD6A]"
+                >
+                  {p.title}
+                </h3>
+                <p className="text-xs md:text-sm text-slate-300 leading-relaxed font-light">
+                  {p.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-sm md:text-base text-slate-100 leading-relaxed font-light max-w-3xl">
+            Nos define la precisión en la ejecución y el compromiso con los
+            resultados. No solo diseñamos la estrategia; nos aseguramos de que
+            la organización tenga la estructura y la motivación necesarias para
+            ejecutarla con excelencia.
+          </p>
+        </div>
+
+        {/* ── BLOQUE 2: PABLO ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Imagen */}
-          <div className="relative group order-2 lg:order-1">
+          <div className="relative group order-2 lg:order-1 self-stretch">
             <div className="absolute -inset-1 bg-gradient-to-r from-secondary to-transparent opacity-20 group-hover:opacity-40 group-active:opacity-40 transition-opacity rounded-xl" />
             <div className="absolute inset-0 z-10 rounded-xl overflow-hidden pointer-events-none">
               <div
@@ -75,62 +203,180 @@ export function BrandPositioning() {
     scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
               />
             </div>
-            <div className="relative group order-2 lg:order-1">
-              <div className="relative w-full h-[260px] sm:h-[320px] md:h-[500px] lg:h-[600px]">
-                <Image
-                  src="/Foto.jpg"
-                  alt="Pablo González"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover grayscale
-      group-hover:grayscale-0 
-      group-hover:scale-105 
-      transition-all duration-700"
-                />
-              </div>
+            <div className="relative w-full h-[300px] sm:h-[380px] lg:h-full min-h-[420px]">
+              <Image
+                src="/Foto.jpg"
+                alt="Pablo González"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top rounded-xl grayscale
+    group-hover:grayscale-0 
+    group-hover:scale-105 
+    transition-all duration-700"
+              />
             </div>
           </div>
 
-          {/* Texto */}
-          <div className="order-1 lg:order-2 space-y-4 md:space-y-8">
+          {/* Texto Pablo */}
+          <div className="order-1 lg:order-2 space-y-4 md:space-y-6">
             <div className="flex items-center gap-4">
               <span className="w-6 md:w-8 h-px bg-primary opacity-60" />
               <span className="text-[10px] md:text-xs font-medium tracking-[0.25em] text-primary uppercase">
-                ¿Quienes somos?
+                Equipo
               </span>
             </div>
             <h2
               className="text-lg md:text-xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-none"
               style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
             >
-              Equipo <span className="text-[#C9A84C]"> Alineado</span>
+              Pablo Martín González{" "}
+              <span className="text-[#C9A84C]">
+                Consultoría Estratégica &amp; Liderazgo Ético
+              </span>
             </h2>
             <blockquote className="border-l-2 border-[#3b8c5e] pl-4 md:pl-6 my-4 md:my-8">
               <p
                 className="text-base md:text-lg lg:text-xl text-slate-000 font-light leading-relaxed italic"
                 style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
               >
-                {" "}
-                Soy Pablo González, la cara visible de un ecosistema de
-                especialistas que da vida a esta consultora. No somos un grupo
-                improvisado: somos un equipo alineado a una convinccion
-                innegociable:{" "}
+                Entiendo la gestión empresarial como un equilibrio preciso entre
+                la{" "}
                 <span className="text-[#3b8c5e] font-semibold relative">
-                  el alto rendimiento es una ciencia, no un accidente
+                  disciplina operativa y la integridad humana.
                 </span>
               </p>
             </blockquote>
 
             <p className="text-sm md:text-base text-slate-100 leading-relaxed font-light">
-              {p1}
+              Mi propósito es ayudar a líderes y organizaciones a alcanzar su
+              máximo potencial a través de una arquitectura organizacional
+              eficiente. Me especializo en el asesoramiento estratégico externo,
+              diseñando procesos que no solo optimizan la rentabilidad, sino que
+              fortalecen el clima humano y la transparencia en la toma de
+              decisiones.
             </p>
+
+            <div className="space-y-3 md:space-y-4">
+              {pabloAreas.map((area) => (
+                <div key={area.title} className="flex gap-3">
+                  <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#3b8c5e]" />
+                  <div>
+                    <span className="text-sm md:text-base font-semibold text-[#3b8c5e]">
+                      {area.title}:{" "}
+                    </span>
+                    <span className="text-sm md:text-base text-slate-100 leading-relaxed font-light">
+                      {area.description}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
             <p className="text-sm md:text-base text-slate-100 leading-relaxed font-light">
-              {p2}
+              Creo firmemente que la excelencia no es un acto aislado, sino un
+              hábito. Por ello, mi enfoque de consultoría se basa en la
+              confidencialidad, el networking de valor y un compromiso total con
+              la calidad. Mi objetivo es elevar el estándar de gestión de mis
+              clientes, asegurando que su estructura sea tan sólida como su
+              visión.
             </p>
           </div>
         </div>
 
-        {/* ── BLOQUE 2 ── */}
+        {/* ── BLOQUE 3: CAROLINA ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
+          {/* Texto Carolina */}
+          <div className="space-y-4 md:space-y-6">
+            <h2
+              className="text-lg md:text-xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-none"
+              style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
+            >
+              Carolina Garibaldi{" "}
+              <span className="text-[#C9A84C]">
+                Operaciones Estratégicas &amp; Executive Business Partner
+              </span>
+            </h2>
+            <blockquote className="border-l-2 border-[#3b8c5e] pl-4 md:pl-6 my-4 md:my-8">
+              <p
+                className="text-base md:text-lg lg:text-xl text-slate-000 font-light leading-relaxed italic"
+                style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
+              >
+                En nuestro equipo, la excelencia operativa tiene{" "}
+                <span className="text-[#3b8c5e] font-semibold relative">
+                  un nombre propio.
+                </span>
+              </p>
+            </blockquote>
+
+            <p className="text-sm md:text-base text-slate-100 leading-relaxed font-light">
+              Con una trayectoria de más de dos décadas en la élite del sector
+              corporativo, Carolina es la estratega responsable de transformar
+              la visión ejecutiva en una realidad operativa impecable. Experta
+              en la gestión de la complejidad, posee una capacidad única para
+              gestionar y coordinar operaciones y procesos de alto nivel.
+            </p>
+
+            <div className="space-y-3 md:space-y-4">
+              {carolinaPillars.map((pillar) => (
+                <div key={pillar.title} className="flex gap-3">
+                  <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#3b8c5e]" />
+                  <div>
+                    <span className="text-sm md:text-base font-semibold text-[#3b8c5e]">
+                      {pillar.title}:{" "}
+                    </span>
+                    <span className="text-sm md:text-base text-slate-100 leading-relaxed font-light">
+                      {pillar.description}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-sm md:text-base text-slate-100 leading-relaxed font-light">
+              Carolina representa el estándar de profesionalismo y eficiencia
+              que define nuestra propuesta de valor, asegurando que la
+              estructura de cada proyecto sea tan sólida como la estrategia que
+              lo impulsa.
+            </p>
+          </div>
+
+          {/* Imagen Carolina */}
+          <div className="relative group self-stretch">
+            <div className="absolute -inset-1 bg-gradient-to-r from-secondary to-transparent opacity-20 group-hover:opacity-40 group-active:opacity-40 transition-opacity rounded-xl" />
+            <div className="absolute inset-0 z-10 rounded-xl overflow-hidden pointer-events-none">
+              <div
+                className="absolute inset-0 z-10 opacity-0 
+    group-hover:opacity-100 transition-opacity duration-700
+    bg-[radial-gradient(ellipse_at_bottom,rgba(212,175,55,0.18)_0%,transparent_70%)]"
+              />
+              <div
+                className="absolute inset-0 z-10 pointer-events-none
+    bg-[linear-gradient(105deg,transparent_40%,rgba(212,175,55,0.15)_50%,transparent_60%)]
+    translate-x-[-120%] group-hover:translate-x-[120%]
+    transition-transform duration-1000 ease-out"
+              />
+              <div
+                className="absolute bottom-0 left-0 right-0 h-px z-20
+    bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent
+    scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
+              />
+            </div>
+            <div className="relative w-full h-[300px] sm:h-[380px] lg:h-full min-h-[420px]">
+              <Image
+                src="/Carolina.jpeg"
+                alt="Carolina Garibaldi"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top rounded-xl grayscale
+      group-hover:grayscale-0 
+      group-hover:scale-105 
+      transition-all duration-700"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* ── BLOQUE 4: METODOLOGÍA ── */}
         <div className="space-y-8 md:space-y-12">
           <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-16 items-center">
             <div className="space-y-4 md:space-y-6 max-w-xl">
