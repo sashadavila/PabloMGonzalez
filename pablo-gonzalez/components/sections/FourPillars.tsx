@@ -59,8 +59,8 @@ export function FourPillars() {
               className="text-xl md:text-4xl font-black text-white uppercase leading-tight mb-4"
               style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
             >
-              Liderando desde <br />
-              <span className="text-[#C9A84C]">el Ser</span>
+              Poder en <br />
+              <span className="text-[#C9A84C]">Acción </span>
             </h2>
 
             <p className="text-sm text-slate-400 font-light">
