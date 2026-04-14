@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import toast from "react-hot-toast";
 
 const selectOptions = [
@@ -11,6 +12,8 @@ const selectOptions = [
 ];
 
 export default function ContactFormEmpresa() {
+  const [loading, setLoading] = useState(false);
+
   return (
     <section
       id="contacto"
@@ -39,24 +42,6 @@ export default function ContactFormEmpresa() {
               Personalizamos cada intervención según los retos de su
               organización.
             </p>
-
-            <div className="space-y-4 pt-4">
-              <div className="flex items-center gap-3 text-sm text-slate-400">
-                <span className="material-symbols-outlined text-[#3b8c5e]">
-                  mail
-                </span>
-                <span className="hover:text-[#3b8c5e] transition">
-                  pablo@pablomgonzalez.com
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3 text-sm text-slate-400">
-                <span className="material-symbols-outlined text-[#3b8c5e]">
-                  location_on
-                </span>
-                <span>Servicio global</span>
-              </div>
-            </div>
           </aside>
 
           {/* FORM */}
@@ -64,7 +49,12 @@ export default function ContactFormEmpresa() {
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
-                const loadingToast = toast.loading("Enviando mensaje...");
+
+                if (loading) return;
+
+                setLoading(true);
+                const toastId = toast.loading("Enviando mensaje...");
+
                 try {
                   const formData = new FormData(e.currentTarget);
 
@@ -84,24 +74,23 @@ export default function ContactFormEmpresa() {
                     body: JSON.stringify(data),
                   });
 
-                  if (!res.ok) {
-                    throw new Error("Error API");
-                  }
+                  if (!res.ok) throw new Error();
 
                   toast.success("Mensaje enviado correctamente", {
-                    id: loadingToast,
+                    id: toastId,
                   });
 
                   e.currentTarget.reset();
-                } catch (error) {
+                } catch {
                   toast.error("No se pudo enviar el mensaje", {
-                    id: loadingToast,
+                    id: toastId,
                   });
+                } finally {
+                  setLoading(false);
                 }
               }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
             >
-              {/* Empresa */}
               <div className="space-y-2">
                 <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
                   Nombre de la Empresa
@@ -111,11 +100,10 @@ export default function ContactFormEmpresa() {
                   name="company"
                   required
                   placeholder="Ej: Global Tech Solutions"
-                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3 placeholder:text-slate-600"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3"
                 />
               </div>
 
-              {/* Email */}
               <div className="space-y-2">
                 <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
                   Email Corporativo *
@@ -125,11 +113,10 @@ export default function ContactFormEmpresa() {
                   name="email"
                   required
                   placeholder="email@empresa.com"
-                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3 placeholder:text-slate-600"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3"
                 />
               </div>
 
-              {/* Cargo */}
               <div className="space-y-2">
                 <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
                   Su Cargo
@@ -138,11 +125,10 @@ export default function ContactFormEmpresa() {
                   type="text"
                   name="position"
                   placeholder="Ej: CEO / Director"
-                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3 placeholder:text-slate-600"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3"
                 />
               </div>
 
-              {/* Select */}
               <div className="space-y-2">
                 <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
                   Objetivos
@@ -150,7 +136,7 @@ export default function ContactFormEmpresa() {
 
                 <select
                   name="objective"
-                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3 appearance-none cursor-pointer"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3"
                 >
                   {selectOptions.map((opt) => (
                     <option key={opt} value={opt} className="bg-[#161616]">
@@ -160,7 +146,6 @@ export default function ContactFormEmpresa() {
                 </select>
               </div>
 
-              {/* Mensaje */}
               <div className="md:col-span-2 space-y-2">
                 <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
                   Mensaje
@@ -170,17 +155,18 @@ export default function ContactFormEmpresa() {
                   name="message"
                   rows={4}
                   placeholder="Describa el desafío de su organización..."
-                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3 resize-none placeholder:text-slate-600"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3 resize-none"
                 />
               </div>
 
-              {/* CTA */}
               <div className="md:col-span-2 pt-4">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto bg-[#3b8c5e] text-white px-6 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-[#3b8c5e]/90 transition-all flex items-center justify-center gap-2 sm:gap-3"
+                  disabled={loading}
+                  className="w-full sm:w-auto bg-[#3b8c5e] text-white px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-[#3b8c5e]/90 transition-all disabled:opacity-60 flex items-center justify-center gap-3"
                 >
-                  Enviar Solicitud
+                  {loading ? "Enviando..." : "Enviar Solicitud"}
+
                   <span className="material-symbols-outlined text-sm">
                     north_east
                   </span>

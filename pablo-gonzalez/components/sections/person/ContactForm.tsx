@@ -48,10 +48,11 @@ export default function ContactForm() {
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
-                const loadingToast = toast.loading("Enviando mensaje...");
-                try {
-                  setLoading(true);
 
+                const loadingToast = toast.loading("Enviando mensaje...");
+                setLoading(true);
+
+                try {
                   const formData = new FormData(e.currentTarget);
 
                   const data = {
@@ -70,19 +71,19 @@ export default function ContactForm() {
                     body: JSON.stringify(data),
                   });
 
-                  if (!res.ok) {
-                    throw new Error("Error API");
-                  }
+                  if (!res.ok) throw new Error();
 
                   toast.success("Mensaje enviado correctamente", {
                     id: loadingToast,
                   });
 
                   e.currentTarget.reset();
-                } catch (error) {
+                } catch {
                   toast.error("No se pudo enviar el mensaje", {
                     id: loadingToast,
                   });
+                } finally {
+                  setLoading(false);
                 }
               }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"

@@ -13,7 +13,7 @@ export function ContactFormDeportistas() {
     >
       <div className="max-w-7xl mx-auto px-5 md:px-6">
         <div className="bg-[#161616] border border-white/5 flex flex-col lg:flex-row rounded-2xl overflow-hidden">
-          {/* ── Info lateral ── */}
+          {/* Info lateral */}
           <aside className="lg:w-1/3 p-8 md:p-12 bg-[#3b8c5e]/5 border-b lg:border-b-0 lg:border-r border-white/5">
             <h2 className="font-serif text-3xl md:text-4xl text-white mb-6 leading-tight">
               Hablemos de <br /> tu próximo nivel.
@@ -48,15 +48,16 @@ export function ContactFormDeportistas() {
             </address>
           </aside>
 
-          {/* ── Formulario ── */}
+          {/* Formulario */}
           <div className="lg:w-2/3 p-8 md:p-12">
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
-                const loadingToast = toast.loading("Enviando mensaje...");
-                try {
-                  setLoading(true);
 
+                const loadingToast = toast.loading("Enviando mensaje...");
+                setLoading(true);
+
+                try {
                   const formData = new FormData(e.currentTarget);
 
                   const data = {
@@ -75,19 +76,19 @@ export function ContactFormDeportistas() {
                     body: JSON.stringify(data),
                   });
 
-                  if (!res.ok) {
-                    throw new Error("Error API");
-                  }
+                  if (!res.ok) throw new Error();
 
                   toast.success("Mensaje enviado correctamente", {
                     id: loadingToast,
                   });
 
                   e.currentTarget.reset();
-                } catch (error) {
-                  toast.error("No se pudo enviar el mensaje", {
+                } catch {
+                  toast.error("No se pudo enviar", {
                     id: loadingToast,
                   });
+                } finally {
+                  setLoading(false);
                 }
               }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
@@ -100,8 +101,8 @@ export function ContactFormDeportistas() {
                 <input
                   type="text"
                   name="name"
-                  placeholder="Juan Pérez"
                   required
+                  placeholder="Juan Pérez"
                   className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-4 text-sm md:text-base transition-colors placeholder:text-slate-600"
                 />
               </div>
@@ -127,8 +128,8 @@ export function ContactFormDeportistas() {
                 <input
                   type="email"
                   name="email"
-                  placeholder="juan@elite-sports.com"
                   required
+                  placeholder="juan@elite-sports.com"
                   className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-4 text-sm md:text-base transition-colors placeholder:text-slate-600"
                 />
               </div>
@@ -151,7 +152,7 @@ export function ContactFormDeportistas() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full md:w-auto bg-[#3b8c5e] text-white px-10 md:px-12 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-[#3b8c5e]/90 transition-all flex items-center justify-center gap-3 disabled:opacity-60"
+                  className="w-full md:w-auto bg-[#3b8c5e] text-white px-10 md:px-12 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-[#3b8c5e]/90 transition-all disabled:opacity-60 flex items-center justify-center gap-3"
                 >
                   {loading ? "Enviando..." : "Solicitar Sesión de Evaluación"}
 
