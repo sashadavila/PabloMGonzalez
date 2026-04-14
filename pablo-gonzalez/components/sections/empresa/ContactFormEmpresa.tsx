@@ -1,5 +1,7 @@
 "use client";
 
+import toast from "react-hot-toast";
+
 const selectOptions = [
   "Transformación Cultural",
   "Formación de Directivos",
@@ -74,7 +76,7 @@ export default function ContactFormEmpresa() {
                     message: formData.get("message"),
                   };
 
-                  const res = await fetch("/api/contact", {
+                  const promise = fetch("/api/contact", {
                     method: "POST",
                     headers: {
                       "Content-Type": "application/json",
@@ -82,14 +84,19 @@ export default function ContactFormEmpresa() {
                     body: JSON.stringify(data),
                   });
 
+                  toast.promise(promise, {
+                    loading: "Enviando mensaje...",
+                    success: "Mensaje enviado correctamente",
+                    error: "No se pudo enviar",
+                  });
+
+                  const res = await promise;
+
                   if (res.ok) {
-                    alert("Mensaje enviado correctamente");
                     e.currentTarget.reset();
-                  } else {
-                    alert("Error al enviar");
                   }
-                } catch (error) {
-                  alert("Error inesperado");
+                } catch {
+                  toast.error("Error inesperado");
                 }
               }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
