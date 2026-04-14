@@ -1,4 +1,10 @@
+"use client";
+
+import { useState } from "react";
+
 export function ContactFormDeportistas() {
+  const [loading, setLoading] = useState(false);
+
   return (
     <section
       id="contacto"
@@ -47,23 +53,38 @@ export function ContactFormDeportistas() {
               onSubmit={async (e) => {
                 e.preventDefault();
 
-                const formData = new FormData(e.currentTarget);
+                try {
+                  setLoading(true);
 
-                const data = {
-                  type: "Deportes",
-                  name: formData.get("name"),
-                  extra: formData.get("extra"),
-                  email: formData.get("email"),
-                  message: formData.get("message"),
-                };
+                  const formData = new FormData(e.currentTarget);
 
-                await fetch("/api/contact", {
-                  method: "POST",
-                  body: JSON.stringify(data),
-                });
+                  const data = {
+                    type: "Deportes",
+                    name: formData.get("name"),
+                    extra: formData.get("extra"),
+                    email: formData.get("email"),
+                    message: formData.get("message"),
+                  };
 
-                alert("Mensaje enviado");
-                e.currentTarget.reset();
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                  });
+
+                  if (res.ok) {
+                    alert("Mensaje enviado correctamente");
+                    e.currentTarget.reset();
+                  } else {
+                    alert("Error al enviar");
+                  }
+                } catch (error) {
+                  alert("Error inesperado");
+                } finally {
+                  setLoading(false);
+                }
               }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
             >
@@ -76,6 +97,7 @@ export function ContactFormDeportistas() {
                   type="text"
                   name="name"
                   placeholder="Juan Pérez"
+                  required
                   className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-4 text-sm md:text-base transition-colors placeholder:text-slate-600"
                 />
               </div>
@@ -124,9 +146,11 @@ export function ContactFormDeportistas() {
               <div className="md:col-span-2 pt-2 md:pt-4">
                 <button
                   type="submit"
-                  className="w-full md:w-auto bg-[#3b8c5e] text-white px-10 md:px-12 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-[#3b8c5e]/90 transition-all flex items-center justify-center gap-3"
+                  disabled={loading}
+                  className="w-full md:w-auto bg-[#3b8c5e] text-white px-10 md:px-12 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-[#3b8c5e]/90 transition-all flex items-center justify-center gap-3 disabled:opacity-60"
                 >
-                  Solicitar Sesión de Evaluación
+                  {loading ? "Enviando..." : "Solicitar Sesión de Evaluación"}
+
                   <span className="material-symbols-outlined text-sm">
                     north_east
                   </span>
