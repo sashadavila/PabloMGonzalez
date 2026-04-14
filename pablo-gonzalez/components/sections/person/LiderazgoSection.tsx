@@ -1,41 +1,19 @@
+"use client";
+
 import Link from "next/link";
 
-const liderazgoFeatures = [
-  {
-    icon: "center_focus_strong",
-    title: "Claridad de Propósito",
-    description:
-      "Definí con precisión qué querés lograr y por qué. Sin ruido, sin distracciones.",
-  },
-  {
-    icon: "psychology",
-    title: "Mentalidad de Liderazgo",
-    description:
-      "Trabajamos los patrones mentales que te frenan y los reemplazamos con una arquitectura de pensamiento ganadora.",
-  },
-  {
-    icon: "trending_up",
-    title: "Sistemas de Alto Rendimiento",
-    description:
-      "Hábitos, rutinas y estructuras que sostienen el crecimiento a largo plazo sin quemarte.",
-  },
-];
-
-export default function LiderazgoSection() {
+export function StrategicServicesSection() {
   return (
-    <section
-      id="liderazgo"
-      className="py-24 bg-[#0d0d0d] border-t border-white/5"
-    >
+    <section className="py-24 bg-[#0d0d0d] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="space-y-12">
-          {/* HEADER */}
+          {/* ── HEADER ── */}
           <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-16 items-center">
             <div className="space-y-6 max-w-xl">
               <div className="flex items-center gap-4">
                 <span className="w-6 md:w-8 h-px bg-[#3b8c5e] opacity-60" />
                 <span className="text-[10px] md:text-xs font-medium tracking-[0.25em] text-[#3b8c5e] uppercase">
-                  01 — Liderazgo Personal
+                  03 — Servicios Estratégicos
                 </span>
               </div>
 
@@ -43,24 +21,32 @@ export default function LiderazgoSection() {
                 className="text-xl md:text-2xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-none"
                 style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
               >
-                Liderarte a vos <span className="text-[#C9A84C]">mismo</span> es
-                el primer paso
+                Consultoría Organizacional:{" "}
+                <span className="text-[#C9A84C]">
+                  Eficiencia, Procesos y Liderazgo Ético
+                </span>
               </h2>
             </div>
 
             <p className="text-sm md:text-base text-slate-300 leading-relaxed font-light">
-              Antes de liderar equipos, organizaciones o causas, hay que dominar
-              el territorio más complejo: uno mismo. Este proceso está diseñado
-              para quienes sienten que tienen más dentro de lo que están
-              expresando.
+              Nuestra consultoría estratégica es un proceso de intervención
+              profunda orientado a maximizar la rentabilidad y garantizar la
+              sostenibilidad ética de la compañía. No entregamos manuales
+              teóricos; instalamos una cultura de eficiencia operativa y
+              liderazgo basado en resultados.
             </p>
           </div>
 
-          {/* CARDS */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
-            {liderazgoFeatures.map(({ icon, title, description }) => (
+          {/* ── CARDS (PRIMER BLOQUE) ── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+            {[
+              "Auditoría y Diagnóstico Operativo: Análisis profundo de la estructura actual para detectar fugas de rentabilidad y fallas en la cadena de mando.",
+              "Rediseño de Procesos y Logística: Optimización de flujos de trabajo para maximizar recursos y tiempos de entrega.",
+              "Formación en Liderazgo Ético: Capacitación para directivos centrada en la transparencia, la responsabilidad (accountability) y la gestión de personas.",
+              "Dinámicas de Equipo y Clima Laboral: Intervenciones grupales para transformar grupos de trabajo en equipos de alto desempeño bajo una visión común.",
+            ].map((item) => (
               <div
-                key={title}
+                key={item}
                 className="group relative overflow-hidden p-5 md:p-6 
                 rounded-2xl 
                 bg-[#1a1a1a] 
@@ -71,54 +57,96 @@ export default function LiderazgoSection() {
                 hover:-translate-y-2 hover:scale-[1.02]"
               >
                 {/* Glow */}
-                <div
-                  className="absolute inset-0 pointer-events-none
-                  bg-[radial-gradient(circle_at_50%_100%,rgba(201,168,76,0.15),transparent_60%)]
-                  opacity-0 group-hover:opacity-100
-                  transition-opacity duration-500"
-                />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_100%,rgba(201,168,76,0.15),transparent_60%)]" />
 
-                {/* Icon */}
-                <span
-                  className="material-symbols-outlined text-[#3b8c5e] mb-4 block 
-                  transition-all duration-300 group-hover:scale-110 group-hover:text-[#C9A84C]"
-                  style={{ fontSize: "24px" }}
-                >
-                  {icon}
-                </span>
-
-                {/* Title */}
-                <h3
-                  className="text-base font-bold mb-2 text-[#3b8c5e] 
-                  transition-colors duration-300 group-hover:text-[#E0BD6A]"
-                >
-                  {title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-slate-300 leading-relaxed font-light">
-                  {description}
+                <p className="text-sm text-slate-300 leading-relaxed font-light relative z-10">
+                  {item}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* CTA */}
+          {/* ── BLOQUE ESTRATÉGICO ── */}
+          <div className="space-y-10 pt-10">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2
+                className="text-xl md:text-2xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-none"
+                style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
+              >
+                Consultoría Estratégica &{" "}
+                <span className="text-[#C9A84C]">
+                  Arquitectura Organizacional
+                </span>
+              </h2>
+
+              <p className="text-[#C9A84C] italic mt-4">
+                No diagnosticamos problemas, diseñamos soluciones de ejecución
+                inmediata
+              </p>
+            </div>
+
+            <div className="space-y-6 text-slate-300 text-sm md:text-base leading-relaxed max-w-3xl mx-auto text-center">
+              <p>
+                Nuestra consultoría estratégica es un proceso de intervención
+                profunda orientado a maximizar la rentabilidad y garantizar la
+                sostenibilidad ética de la compañía. No entregamos manuales
+                teóricos; instalamos una cultura de eficiencia operativa y
+                liderazgo basado en resultados.
+              </p>
+
+              <p>
+                A través de un equipo interdisciplinario, analizamos el ADN de
+                tu organización para detectar fugas de capital, cuellos de
+                botella en la toma de decisiones y debilidades en la cadena de
+                mando.
+              </p>
+            </div>
+
+            {/* ── COMPONENTES ── */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+              {[
+                "Auditoría de Procesos y Logística: Reingeniería de flujos de trabajo para eliminar redundancias. Optimizamos el uso de recursos para que cada movimiento de la empresa genere valor real.",
+                "Diseño de Estructuras de Liderazgo: Implementamos modelos de Liderazgo Ético e Inteligencia Interpersonal. Transformamos grupos de trabajo en unidades de alto desempeño con objetivos claros y accountability (rendición de cuentas).",
+                "Gestión del Cambio y Resiliencia Corporativa: Preparamos a la organización para navegar entornos de incertidumbre, fortaleciendo la capacidad de respuesta de los mandos medios y la alta dirección.",
+                "Blindaje de Transparencia: Aplicamos protocolos de auditoría interna que aseguran que el crecimiento del negocio sea sólido, legal y alineado con los valores fundacionales de la marca.",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="group relative overflow-hidden p-5 md:p-6 
+                  rounded-2xl 
+                  bg-[#1a1a1a] 
+                  border border-white/5
+                  shadow-[0_4px_20px_rgba(0,0,0,0.4)]
+                  hover:shadow-[0_10px_40px_rgba(0,0,0,0.7)]
+                  transition-all duration-500 ease-out
+                  hover:-translate-y-2 hover:scale-[1.02]"
+                >
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_100%,rgba(201,168,76,0.15),transparent_60%)]" />
+
+                  <p className="text-sm text-slate-300 leading-relaxed font-light relative z-10">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── CTA ── */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 p-6 md:p-8 rounded-2xl border border-[#C9A84C]/20 bg-[#C9A84C]/5">
             <div>
               <h3 className="text-white font-bold text-xl mb-1">
-                ¿Listo para tomar las riendas?
+                ¿Listo para optimizar tu organización?
               </h3>
               <p className="text-slate-400 text-sm">
-                Comenzamos con una sesión de diagnóstico sin compromiso.
+                Comenzamos con un diagnóstico estratégico sin compromiso.
               </p>
             </div>
 
             <Link
               href="#contacto"
-              className="bg-primary text-white px-8 md:px-12 py-4 md:py-5 text-sm font-bold uppercase rounded-lg"
+              className="bg-primary text-white px-8 md:px-12 py-4 md:py-5 text-sm font-bold uppercase rounded-lg flex items-center gap-2"
             >
-              Comenzar el proceso
+              Agendar Diagnóstico
               <span className="material-symbols-outlined">north_east</span>
             </Link>
           </div>

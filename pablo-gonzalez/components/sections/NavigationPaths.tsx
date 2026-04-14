@@ -12,7 +12,7 @@ const PATHS = [
   {
     href: "/empresas",
     title: "Empresas",
-    eyebrow: "Consultoría Corporativa",
+    eyebrow: "Consultoría Organizacional",
     description:
       "Optimización de procesos para organizaciones que buscan trascender. Ingeniería organizacional enfocada en la eficiencia operativa",
     cta: "Servicios Corporativos",

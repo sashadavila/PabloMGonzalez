@@ -17,8 +17,8 @@ export default function ContactFormEmpresa() {
           {/* ASIDE */}
           <aside className="lg:w-[35%] p-6 sm:p-8 md:p-10 lg:p-12 bg-[#c5a059]/5 border-b lg:border-b-0 lg:border-r border-white/5 space-y-5 md:space-y-6">
             <div className="flex items-center gap-4">
-              <span className="w-6 md:w-8 h-px bg-[#c5a059] opacity-60" />
-              <span className="text-[10px] tracking-[0.25em] text-[#c5a059] uppercase">
+              <span className="w-6 md:w-8 h-px bg-[#3b8c5e] opacity-60" />
+              <span className="text-[10px] tracking-[0.25em] text-[#3b8c5e] uppercase">
                 Empresas
               </span>
             </div>
@@ -38,16 +38,16 @@ export default function ContactFormEmpresa() {
 
             <div className="space-y-4 pt-4">
               <div className="flex items-center gap-3 text-sm text-slate-400">
-                <span className="material-symbols-outlined text-[#c5a059]">
+                <span className="material-symbols-outlined text-[#3b8c5e]">
                   mail
                 </span>
-                <span className="hover:text-[#c5a059] transition">
+                <span className="hover:text-[#3b8c5e] transition">
                   empresas@pablomgonzalez.com
                 </span>
               </div>
 
               <div className="flex items-center gap-3 text-sm text-slate-400">
-                <span className="material-symbols-outlined text-[#c5a059]">
+                <span className="material-symbols-outlined text-[#3b8c5e]">
                   location_on
                 </span>
                 <span>Servicio global · In-company</span>
@@ -67,7 +67,7 @@ export default function ContactFormEmpresa() {
                   type="text"
                   placeholder="Ej: Global Tech Solutions"
                   className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#c5a059] focus:outline-none
+                  focus:border-[#3b8c5e] focus:outline-none
                   text-white py-2.5 sm:py-3 text-sm sm:text-base
                   transition-colors placeholder:text-slate-600"
                 />
@@ -82,7 +82,7 @@ export default function ContactFormEmpresa() {
                   type="email"
                   placeholder="email@empresa.com"
                   className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#c5a059] focus:outline-none
+                  focus:border-[#3b8c5e] focus:outline-none
                   text-white py-2.5 sm:py-3 text-sm sm:text-base
                   transition-colors placeholder:text-slate-600"
                 />
@@ -97,7 +97,7 @@ export default function ContactFormEmpresa() {
                   type="text"
                   placeholder="Ej: CEO / Director"
                   className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#c5a059] focus:outline-none
+                  focus:border-[#3b8c5e] focus:outline-none
                   text-white py-2.5 sm:py-3 text-sm sm:text-base
                   transition-colors placeholder:text-slate-600"
                 />
@@ -110,7 +110,7 @@ export default function ContactFormEmpresa() {
                 </label>
                 <select
                   className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#c5a059] focus:outline-none
+                  focus:border-[#3b8c5e] focus:outline-none
                   text-white py-2.5 sm:py-3 text-sm sm:text-base
                   transition-colors appearance-none cursor-pointer"
                 >
@@ -131,7 +131,7 @@ export default function ContactFormEmpresa() {
                   rows={4}
                   placeholder="Describa el desafío de su organización..."
                   className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#c5a059] focus:outline-none
+                  focus:border-[#3b8c5e] focus:outline-none
                   text-white py-2.5 sm:py-3 text-sm sm:text-base
                   transition-colors resize-none placeholder:text-slate-600"
                 />
@@ -139,19 +139,21 @@ export default function ContactFormEmpresa() {
 
               {/* CTA */}
               <div className="md:col-span-2 pt-4">
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto bg-[#c5a059] text-[#0d0d0d] 
+                <div className="md:col-span-2 pt-4">
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto bg-[#3b8c5e] text-white 
                   px-6 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5
                   text-xs sm:text-sm font-bold uppercase tracking-widest
-                  hover:bg-[#c5a059]/90 transition-all 
+                  hover:bg-[#3b8c5e]/90 transition-all 
                   flex items-center justify-center gap-2 sm:gap-3"
-                >
-                  Enviar Solicitud
-                  <span className="material-symbols-outlined text-sm">
-                    north_east
-                  </span>
-                </button>
+                  >
+                    Enviar Solicitud
+                    <span className="material-symbols-outlined text-sm">
+                      north_east
+                    </span>
+                  </button>
+                </div>
               </div>
             </form>
           </div>

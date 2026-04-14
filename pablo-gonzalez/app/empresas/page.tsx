@@ -1,8 +1,11 @@
 import { Footer, Navbar } from "@/components/sections";
+import { AuthoritySection } from "@/components/sections/empresa/AuthoritySection";
 import ContactFormEmpresa from "@/components/sections/empresa/ContactFormEmpresa";
+import { GastronomiaSection } from "@/components/sections/empresa/Gastronomia";
+import { HeroEmpresa } from "@/components/sections/empresa/HeroEmpresa";
+import { HeroGastronomia } from "@/components/sections/empresa/HeroGastronomia";
+import { StrategicServicesSection } from "@/components/sections/empresa/StrategicServices";
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Consultoría Corporativa",
@@ -12,27 +15,15 @@ export const metadata: Metadata = {
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Stat = {
-  value: string;
-  label: string;
-  accent?: boolean;
-};
-
 type Pillar = {
   icon: string;
   title: string;
   description: string;
   items: string[];
+  image: string;
 };
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
-
-const stats: Stat[] = [
-  { value: "+50", label: "Empresas Transformadas" },
-  { value: "1.2k", label: "Líderes Formados", accent: true },
-  { value: "94%", label: "Índice de Confianza" },
-  { value: "20+", label: "Años de Experiencia", accent: true },
-];
 
 const pillars: Pillar[] = [
   {
@@ -41,6 +32,7 @@ const pillars: Pillar[] = [
     description:
       "Desarrollamos marcos de decisión ética que protegen la reputación y alinean los valores personales con los objetivos de negocio.",
     items: ["Códigos de conducta aplicados", "Gobernanza ética"],
+    image: "/LOGOTIPO1.png",
   },
   {
     icon: "psychology",
@@ -48,6 +40,7 @@ const pillars: Pillar[] = [
     description:
       "Fomentamos entornos de seguridad psicológica donde la innovación surge de la libertad y el respeto mutuo.",
     items: ["Comunicación asertiva", "Seguridad psicológica"],
+    image: "/1.png",
   },
   {
     icon: "groups",
@@ -55,111 +48,15 @@ const pillars: Pillar[] = [
     description:
       "Formamos directivos capaces de inspirar, delegar con propósito y gestionar equipos híbridos y globales.",
     items: ["Soft skills ejecutivas", "Gestión del cambio"],
+    image: "/2.png",
   },
 ];
 
-function Hero() {
-  return (
-    <header className="relative overflow-hidden pt-16 pb-24">
-      <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-        {/* Text */}
-        <div className="relative z-10 space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3a8d61]/10 border border-[#3a8d61]/20 text-[#3a8d61] text-xs font-bold tracking-widest uppercase">
-            <span className="flex h-2 w-2 rounded-full bg-[#3a8d61] animate-pulse" />
-            Soluciones para la Alta Dirección
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-tight text-slate-100">
-            Liderazgo Ético para la{" "}
-            <span className="text-[#3a8d61]">Era Global.</span>
-          </h1>
-
-          <p className="text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed">
-            Transformamos organizaciones a través de la integridad y el
-            propósito. Diseñamos culturas corporativas de alto rendimiento
-            basadas en la confianza y la sostenibilidad humana.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="#contacto"
-              className="flex items-center justify-center h-14 px-8 bg-[#3a8d61] text-white font-bold rounded-lg hover:shadow-[0_0_20px_rgba(58,141,97,0.4)] transition-all"
-            >
-              Agendar Diagnóstico Inicial
-            </Link>
-            <Link
-              href="#"
-              className="flex items-center justify-center h-14 px-8 border border-slate-700 text-slate-100 font-bold rounded-lg hover:bg-slate-800 transition-all"
-            >
-              Descargar Dossier
-            </Link>
-          </div>
-        </div>
-
-        {/* Image card */}
-        <div className="relative aspect-square lg:aspect-auto lg:h-[600px] rounded-xl overflow-hidden shadow-2xl border border-slate-800">
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d]/80 to-transparent z-10" />
-          <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4FBBlGmvd_lPMyd5xvFXzuxtupSa6QnR_Su9CBqI5NoQHKlNlnu5F9W4BTeVBBg_tbHRli7GFvjjEvP9DSTxbBDwvEE4CK98wYMdjp0FFki8BAh8pCMflWx9bKvK9PwCH_CHle3hglq8M4anE1_qaO-PQiNCfm6OJbWTRnrbRte1zX6ByQTDcUvrpwgWRW0PtqVWIXVljsomOp-mVvZZ2uYgBfRRIdt25WjRPsmY6v1Fecd-LByDsVuRL9G-FH0WEXR0vjetkdis"
-            alt="Rascacielos corporativo moderno de cristal"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute bottom-6 left-6 right-6 p-6 bg-[#161616]/90 backdrop-blur rounded border border-white/10 z-20">
-            <p className="text-[#c5a059] font-bold text-sm mb-1 uppercase tracking-widest">
-              Impacto Medible
-            </p>
-            <p className="text-slate-100 text-lg italic">
-              &ldquo;La ética no es un freno al crecimiento, es el motor más
-              potente para la retención de talento y la resiliencia
-              organizacional.&rdquo;
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Decorative blur */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#3a8d61]/10 rounded-full blur-[120px] pointer-events-none" />
-    </header>
-  );
-}
-
 // ─────────────────────────────────────────────────────────────────────────────
 
-function Stats() {
+export function PillarCard({ icon, title, description, items }: Pillar) {
   return (
-    <section className="py-12 bg-[#161616] border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map(({ value, label, accent }) => (
-            <div key={label} className="text-center">
-              <p
-                className={`text-4xl font-black mb-1 ${
-                  accent ? "text-[#3a8d61]" : "text-slate-100"
-                }`}
-              >
-                {value}
-              </p>
-              <p className="text-sm text-slate-500 uppercase font-bold tracking-tighter">
-                {label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-
-function PillarCard({ icon, title, description, items }: Pillar) {
-  return (
-    <div
-      id="metodologia"
-      className="group p-8 bg-[#161616] border border-slate-800 rounded-xl hover:border-[#3a8d61]/50 transition-all duration-300"
-    >
+    <div className="group p-8 bg-[#161616] border border-slate-800 rounded-xl hover:border-[#3a8d61]/50 transition-all duration-300">
       <div className="w-14 h-14 rounded-lg bg-[#3a8d61]/10 flex items-center justify-center mb-6 group-hover:bg-[#3a8d61] transition-colors">
         <span
           className="material-symbols-outlined text-[#3a8d61] group-hover:text-white text-3xl"
@@ -189,30 +86,109 @@ function PillarCard({ icon, title, description, items }: Pillar) {
     </div>
   );
 }
-
 function CorePillars() {
   return (
-    <section id="servicios" className="py-24">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-          <div className="max-w-2xl">
-            <h2 className="text-[#c5a059] text-sm font-black uppercase tracking-[0.2em] mb-4">
-              Nuestra Metodología
-            </h2>
-            <h3 className="text-4xl md:text-5xl font-bold text-slate-100 tracking-tight leading-tight">
-              Pilares de la Excelencia Corporativa.
-            </h3>
+    <section id="metodologia" className="py-20 bg-[#0d0d0d]">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* HEADER */}
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-4 mb-5">
+            <span className="w-6 h-px bg-[#3a8d61] opacity-60" />
+            <span className="text-[10px] tracking-[0.25em] text-[#3a8d61] uppercase">
+              Metodología
+            </span>
+            <span className="w-6 h-px bg-[#3a8d61] opacity-60" />
           </div>
-          <p className="text-slate-400 max-w-sm mb-2">
-            Soluciones integrales diseñadas para evolucionar la cultura y los
-            resultados de su compañía.
+
+          <h2
+            className="text-2xl md:text-5xl font-black text-white uppercase leading-tight"
+            style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
+          >
+            Arquitectura <br />
+            <span className="text-[#C9A84C]">Organizacional</span>
+          </h2>
+
+          <p className="text-sm text-slate-400 mt-4 font-light">
+            Diseño estructural para rendimiento sostenible
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {pillars.map((pillar) => (
-            <PillarCard key={pillar.title} {...pillar} />
+        {/* CARDS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
+          {pillars.map((pillar, i) => (
+            <div
+              key={pillar.title}
+              className="group relative overflow-hidden rounded-xl md:rounded-2xl"
+            >
+              {/* IMAGEN */}
+              <div className="relative w-full h-[260px] md:h-[340px]">
+                <img
+                  src={pillar.image}
+                  alt={pillar.title}
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                />
+              </div>
+
+              {/* OVERLAY PRO */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent md:from-black md:via-black/60" />
+
+              {/* CONTENIDO */}
+              <div className="absolute bottom-0 left-0 p-5 md:p-6 z-20">
+                {/* NUMERO */}
+                <span
+                  className="text-3xl md:text-5xl font-light text-[#C9A84C] mb-2 block"
+                  style={{
+                    fontFamily: "'Libre Baskerville', Georgia, serif",
+                  }}
+                >
+                  0{i + 1}
+                </span>
+
+                {/* TITULO */}
+                <h3
+                  className="text-lg md:text-xl font-bold text-white mb-2 leading-tight"
+                  style={{
+                    fontFamily: "'Libre Baskerville', Georgia, serif",
+                  }}
+                >
+                  {pillar.title}
+                </h3>
+
+                {/* LINEA */}
+                <div className="w-8 h-px bg-[#C9A84C] mb-2" />
+
+                {/* DESCRIPCION */}
+                <p className="text-sm text-white/80 leading-relaxed font-light md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                  {pillar.description}
+                </p>
+              </div>
+
+              {/* EFECTO GLOW */}
+              <div
+                className="hidden md:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700
+                bg-[radial-gradient(ellipse_at_bottom,rgba(201,168,76,0.25)_0%,transparent_70%)]"
+              />
+
+              {/* LINEA HOVER */}
+              <div
+                className="hidden md:block absolute bottom-0 left-0 right-0 h-px
+                bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent
+                scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
+              />
+            </div>
           ))}
+        </div>
+
+        {/* FRASE FINAL */}
+        <div className="mt-16 md:mt-24 text-center max-w-2xl mx-auto">
+          <p
+            className="text-lg md:text-2xl text-slate-300 italic font-light leading-relaxed"
+            style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
+          >
+            La estructura define el resultado. El liderazgo define el impacto.
+          </p>
+
+          <div className="w-10 h-px bg-[#C9A84C] mx-auto mt-6 opacity-60" />
         </div>
       </div>
     </section>
@@ -225,17 +201,22 @@ export default function EmpresasPage() {
       <Navbar
         accent="green"
         links={[
-          { label: "Filosofía", href: "#filosofia" },
-          { label: "Pilares", href: "#servicios" },
-          { label: "Metodología", href: "#metodologia" },
+          { label: "Inicio", href: "#top" },
+          { label: "Servicios", href: "#servicios" },
+          { label: "Equipo", href: "#equipo" },
+          { label: "Metodologia", href: "#metodologia" },
+          { label: "Gastronomia", href: "#gastronomia" },
         ]}
         ctaLabel="Agendar Diagnóstico"
         ctaHref="#contacto"
       />
       <main>
-        <Hero />
-        <Stats />
+        <HeroEmpresa />
+        <StrategicServicesSection />
+        <AuthoritySection />
         <CorePillars />
+        <HeroGastronomia />
+        <GastronomiaSection />
         <ContactFormEmpresa />
       </main>
       <Footer />

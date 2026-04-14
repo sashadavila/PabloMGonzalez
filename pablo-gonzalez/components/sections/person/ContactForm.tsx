@@ -41,7 +41,7 @@ export default function ContactForm() {
                   mail
                 </span>
                 <span className="hover:text-[#3b8c5e] transition">
-                  Pablo@pablomgonzalez.com
+                  pablo@pablomgonzalez.com
                 </span>
               </div>
 

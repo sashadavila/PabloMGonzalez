@@ -33,7 +33,7 @@ export default function HeroPersons() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Asesoría Individual de Alto Nivel
+            Mentoring Individual
           </motion.span>
 
           {/* TITULO */}
