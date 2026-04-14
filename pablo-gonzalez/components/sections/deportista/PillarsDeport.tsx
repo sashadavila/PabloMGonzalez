@@ -16,7 +16,7 @@ const pillars = [
     title: "Gestión emocional",
     description:
       "Dominio del estado interno en contextos de alta exigencia: errores, frustración, competencia y exposición.",
-    image: "/icono.png",
+    image: "/ICONO.png",
     alt: "Gestión emocional en deporte",
   },
   {
@@ -32,7 +32,7 @@ const pillars = [
     title: "Transición y carrera",
     description:
       "Acompañamiento estratégico en decisiones clave: cambios de equipo, lesiones o retiro profesional.",
-    image: "/icono.png",
+    image: "/ICONO.png",
     alt: "Carrera deportiva",
   },
 ];
