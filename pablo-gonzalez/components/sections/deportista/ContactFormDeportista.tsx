@@ -53,7 +53,7 @@ export function ContactFormDeportistas() {
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
-
+                const loadingToast = toast.loading("Enviando mensaje...");
                 try {
                   setLoading(true);
 
@@ -67,7 +67,7 @@ export function ContactFormDeportistas() {
                     message: formData.get("message"),
                   };
 
-                  const promise = fetch("/api/contact", {
+                  const res = await fetch("/api/contact", {
                     method: "POST",
                     headers: {
                       "Content-Type": "application/json",
@@ -75,19 +75,19 @@ export function ContactFormDeportistas() {
                     body: JSON.stringify(data),
                   });
 
-                  toast.promise(promise, {
-                    loading: "Enviando mensaje...",
-                    success: "Mensaje enviado correctamente",
-                    error: "No se pudo enviar",
+                  if (!res.ok) {
+                    throw new Error("Error API");
+                  }
+
+                  toast.success("Mensaje enviado correctamente", {
+                    id: loadingToast,
                   });
 
-                  const res = await promise;
-
-                  if (res.ok) {
-                    e.currentTarget.reset();
-                  }
-                } catch {
-                  toast.error("Error inesperado");
+                  e.currentTarget.reset();
+                } catch (error) {
+                  toast.error("No se pudo enviar el mensaje", {
+                    id: loadingToast,
+                  });
                 }
               }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
