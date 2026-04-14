@@ -42,7 +42,7 @@ export default function ContactFormEmpresa() {
                   mail
                 </span>
                 <span className="hover:text-[#3b8c5e] transition">
-                  empresas@pablomgonzalez.com
+                  pablo@pablomgonzalez.com
                 </span>
               </div>
 
@@ -50,7 +50,7 @@ export default function ContactFormEmpresa() {
                 <span className="material-symbols-outlined text-[#3b8c5e]">
                   location_on
                 </span>
-                <span>Servicio global · In-company</span>
+                <span>Servicio global </span>
               </div>
             </div>
           </aside>

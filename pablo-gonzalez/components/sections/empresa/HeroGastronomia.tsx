@@ -17,7 +17,7 @@ export function HeroGastronomia() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d]/90 via-[#0d0d0d]/60 to-transparent z-10" />
 
         <Image
-          src="/LOGOTIPO1.png" // 👉 poné una cocina profesional / restaurante
+          src="/gastronomía.png" // 👉 poné una cocina profesional / restaurante
           alt="Consultoría gastronómica"
           fill
           className="object-cover"

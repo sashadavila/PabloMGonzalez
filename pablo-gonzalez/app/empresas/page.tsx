@@ -1,5 +1,4 @@
 import { Footer, Navbar } from "@/components/sections";
-import { AuthoritySection } from "@/components/sections/empresa/AuthoritySection";
 import ContactFormEmpresa from "@/components/sections/empresa/ContactFormEmpresa";
 import { GastronomiaSection } from "@/components/sections/empresa/Gastronomia";
 import { HeroEmpresa } from "@/components/sections/empresa/HeroEmpresa";
@@ -203,7 +202,6 @@ export default function EmpresasPage() {
         links={[
           { label: "Inicio", href: "#top" },
           { label: "Servicios", href: "#servicios" },
-          { label: "Equipo", href: "#equipo" },
           { label: "Metodologia", href: "#metodologia" },
           { label: "Gastronomia", href: "#gastronomia" },
         ]}
@@ -213,7 +211,6 @@ export default function EmpresasPage() {
       <main>
         <HeroEmpresa />
         <StrategicServicesSection />
-        <AuthoritySection />
         <CorePillars />
         <HeroGastronomia />
         <GastronomiaSection />

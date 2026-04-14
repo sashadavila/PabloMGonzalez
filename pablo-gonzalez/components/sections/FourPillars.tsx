@@ -32,7 +32,7 @@ const pillars = [
     title: "Introspección aplicada al Liderazgo",
     description:
       "Identificación de patrones inconscientes que limitan el crecimiento profesional y personal",
-    image: "/brujula.png",
+    image: "/LOGOTIPO1.png",
     alt: "Introspección aplicada al Liderazgo",
   },
 ];
