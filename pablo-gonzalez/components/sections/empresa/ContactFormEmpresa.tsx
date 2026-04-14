@@ -57,7 +57,30 @@ export default function ContactFormEmpresa() {
 
           {/* FORM */}
           <div className="lg:w-[65%] p-6 sm:p-8 md:p-10 lg:p-12">
-            <form className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(e.currentTarget);
+
+                const data = {
+                  type: "empresa",
+                  name: formData.get("company"),
+                  email: formData.get("email"),
+                  extra: formData.get("position"),
+                  message: formData.get("message"),
+                };
+
+                await fetch("/api/contact", {
+                  method: "POST",
+                  body: JSON.stringify(data),
+                });
+
+                alert("Mensaje enviado");
+                e.currentTarget.reset();
+              }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
+            >
               {/* Empresa */}
               <div className="space-y-2">
                 <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
@@ -65,6 +88,7 @@ export default function ContactFormEmpresa() {
                 </label>
                 <input
                   type="text"
+                  name="company"
                   placeholder="Ej: Global Tech Solutions"
                   className="w-full bg-transparent border-b border-white/10
                   focus:border-[#3b8c5e] focus:outline-none
@@ -80,6 +104,7 @@ export default function ContactFormEmpresa() {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="email@empresa.com"
                   className="w-full bg-transparent border-b border-white/10
                   focus:border-[#3b8c5e] focus:outline-none
@@ -95,6 +120,7 @@ export default function ContactFormEmpresa() {
                 </label>
                 <input
                   type="text"
+                  name="position"
                   placeholder="Ej: CEO / Director"
                   className="w-full bg-transparent border-b border-white/10
                   focus:border-[#3b8c5e] focus:outline-none
@@ -128,6 +154,7 @@ export default function ContactFormEmpresa() {
                   Mensaje
                 </label>
                 <textarea
+                  name="message"
                   rows={4}
                   placeholder="Describa el desafío de su organización..."
                   className="w-full bg-transparent border-b border-white/10

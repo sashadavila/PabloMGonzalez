@@ -44,8 +44,27 @@ export function ContactFormDeportistas() {
           {/* ── Formulario ── */}
           <div className="lg:w-2/3 p-8 md:p-12">
             <form
-              action="#"
-              method="POST"
+              onSubmit={async (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(e.currentTarget);
+
+                const data = {
+                  type: "Deportes",
+                  name: formData.get("name"),
+                  extra: formData.get("extra"),
+                  email: formData.get("email"),
+                  message: formData.get("message"),
+                };
+
+                await fetch("/api/contact", {
+                  method: "POST",
+                  body: JSON.stringify(data),
+                });
+
+                alert("Mensaje enviado");
+                e.currentTarget.reset();
+              }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
             >
               {/* Nombre */}
@@ -55,6 +74,7 @@ export function ContactFormDeportistas() {
                 </label>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Juan Pérez"
                   className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-4 text-sm md:text-base transition-colors placeholder:text-slate-600"
                 />
@@ -67,6 +87,7 @@ export function ContactFormDeportistas() {
                 </label>
                 <input
                   type="text"
+                  name="extra"
                   placeholder="Tenis, Fútbol, Natación..."
                   className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-4 text-sm md:text-base transition-colors placeholder:text-slate-600"
                 />
@@ -79,6 +100,7 @@ export function ContactFormDeportistas() {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="juan@elite-sports.com"
                   required
                   className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-4 text-sm md:text-base transition-colors placeholder:text-slate-600"
@@ -91,6 +113,7 @@ export function ContactFormDeportistas() {
                   Mensaje / Objetivo
                 </label>
                 <textarea
+                  name="message"
                   rows={4}
                   placeholder="¿Cuál es tu principal desafío actual?"
                   className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-4 text-sm md:text-base transition-colors resize-none placeholder:text-slate-600"
