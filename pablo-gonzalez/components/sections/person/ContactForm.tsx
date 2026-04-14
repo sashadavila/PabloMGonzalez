@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 const advisoryOptions = [
   "Liderazgo y Carrera",
   "Propósito y Visión de Vida",
@@ -7,6 +11,8 @@ const advisoryOptions = [
 ];
 
 export default function ContactForm() {
+  const [loading, setLoading] = useState(false);
+
   return (
     <section
       id="contacto"
@@ -34,24 +40,6 @@ export default function ContactForm() {
               Contame tu situación actual. Analizo personalmente cada caso para
               ver si este proceso es el adecuado para vos.
             </p>
-
-            <div className="space-y-4 pt-4">
-              <div className="flex items-center gap-3 text-sm text-slate-400">
-                <span className="material-symbols-outlined text-[#3b8c5e]">
-                  mail
-                </span>
-                <span className="hover:text-[#3b8c5e] transition">
-                  pablo@pablomgonzalez.com
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3 text-sm text-slate-400">
-                <span className="material-symbols-outlined text-[#3b8c5e]">
-                  location_on
-                </span>
-                <span>Argentina · Remoto Global</span>
-              </div>
-            </div>
           </aside>
 
           {/* FORM */}
@@ -60,23 +48,38 @@ export default function ContactForm() {
               onSubmit={async (e) => {
                 e.preventDefault();
 
-                const formData = new FormData(e.currentTarget);
+                try {
+                  setLoading(true);
 
-                const data = {
-                  type: "Persona",
-                  name: formData.get("name"),
-                  email: formData.get("email"),
-                  extra: formData.get("position"),
-                  message: formData.get("message"),
-                };
+                  const formData = new FormData(e.currentTarget);
 
-                await fetch("/api/contact", {
-                  method: "POST",
-                  body: JSON.stringify(data),
-                });
+                  const data = {
+                    type: "Persona",
+                    name: formData.get("name"),
+                    email: formData.get("email"),
+                    extra: formData.get("interest"),
+                    message: formData.get("message"),
+                  };
 
-                alert("Mensaje enviado");
-                e.currentTarget.reset();
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                  });
+
+                  if (res.ok) {
+                    alert("Mensaje enviado correctamente");
+                    e.currentTarget.reset();
+                  } else {
+                    alert("Error al enviar");
+                  }
+                } catch (error) {
+                  alert("Error inesperado");
+                } finally {
+                  setLoading(false);
+                }
               }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
             >
@@ -88,11 +91,9 @@ export default function ContactForm() {
                 <input
                   type="text"
                   name="name"
+                  required
                   placeholder="Tu nombre..."
-                  className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#3b8c5e] focus:outline-none
-                  text-white py-2.5 sm:py-3 text-sm sm:text-base
-                  transition-colors placeholder:text-slate-600"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3"
                 />
               </div>
 
@@ -104,11 +105,9 @@ export default function ContactForm() {
                 <input
                   type="email"
                   name="email"
+                  required
                   placeholder="tu@email.com"
-                  className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#3b8c5e] focus:outline-none
-                  text-white py-2.5 sm:py-3 text-sm sm:text-base
-                  transition-colors placeholder:text-slate-600"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3"
                 />
               </div>
 
@@ -117,11 +116,10 @@ export default function ContactForm() {
                 <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
                   Intereses de Asesoría
                 </label>
+
                 <select
-                  className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#3b8c5e] focus:outline-none
-                  text-white py-2.5 sm:py-3 text-sm sm:text-base
-                  transition-colors appearance-none cursor-pointer"
+                  name="interest"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3"
                 >
                   {advisoryOptions.map((opt) => (
                     <option key={opt} value={opt} className="bg-[#161616]">
@@ -136,14 +134,12 @@ export default function ContactForm() {
                 <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
                   Mensaje
                 </label>
+
                 <textarea
                   name="message"
                   rows={4}
                   placeholder="Contame tu situación..."
-                  className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#3b8c5e] focus:outline-none
-                  text-white py-2.5 sm:py-3 text-sm sm:text-base
-                  transition-colors resize-none placeholder:text-slate-600"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3 resize-none"
                 />
               </div>
 
@@ -151,13 +147,11 @@ export default function ContactForm() {
               <div className="md:col-span-2 pt-4">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto bg-[#3b8c5e] text-white 
-                  px-6 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5
-                  text-xs sm:text-sm font-bold uppercase tracking-widest
-                  hover:bg-[#3b8c5e]/90 transition-all 
-                  flex items-center justify-center gap-2 sm:gap-3"
+                  disabled={loading}
+                  className="w-full sm:w-auto bg-[#3b8c5e] text-white px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-[#3b8c5e]/90 transition-all disabled:opacity-60 flex items-center justify-center gap-3"
                 >
-                  Enviar Solicitud
+                  {loading ? "Enviando..." : "Enviar Solicitud"}
+
                   <span className="material-symbols-outlined text-sm">
                     north_east
                   </span>
