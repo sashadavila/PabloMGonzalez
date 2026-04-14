@@ -1,3 +1,5 @@
+"use client";
+
 const selectOptions = [
   "Transformación Cultural",
   "Formación de Directivos",
@@ -50,7 +52,7 @@ export default function ContactFormEmpresa() {
                 <span className="material-symbols-outlined text-[#3b8c5e]">
                   location_on
                 </span>
-                <span>Servicio global </span>
+                <span>Servicio global</span>
               </div>
             </div>
           </aside>
@@ -61,23 +63,34 @@ export default function ContactFormEmpresa() {
               onSubmit={async (e) => {
                 e.preventDefault();
 
-                const formData = new FormData(e.currentTarget);
+                try {
+                  const formData = new FormData(e.currentTarget);
 
-                const data = {
-                  type: "empresa",
-                  name: formData.get("company"),
-                  email: formData.get("email"),
-                  extra: formData.get("position"),
-                  message: formData.get("message"),
-                };
+                  const data = {
+                    type: "Empresa",
+                    name: formData.get("company"),
+                    email: formData.get("email"),
+                    extra: formData.get("position"),
+                    message: formData.get("message"),
+                  };
 
-                await fetch("/api/contact", {
-                  method: "POST",
-                  body: JSON.stringify(data),
-                });
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                  });
 
-                alert("Mensaje enviado");
-                e.currentTarget.reset();
+                  if (res.ok) {
+                    alert("Mensaje enviado correctamente");
+                    e.currentTarget.reset();
+                  } else {
+                    alert("Error al enviar");
+                  }
+                } catch (error) {
+                  alert("Error inesperado");
+                }
               }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
             >
@@ -89,11 +102,9 @@ export default function ContactFormEmpresa() {
                 <input
                   type="text"
                   name="company"
+                  required
                   placeholder="Ej: Global Tech Solutions"
-                  className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#3b8c5e] focus:outline-none
-                  text-white py-2.5 sm:py-3 text-sm sm:text-base
-                  transition-colors placeholder:text-slate-600"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3 placeholder:text-slate-600"
                 />
               </div>
 
@@ -105,11 +116,9 @@ export default function ContactFormEmpresa() {
                 <input
                   type="email"
                   name="email"
+                  required
                   placeholder="email@empresa.com"
-                  className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#3b8c5e] focus:outline-none
-                  text-white py-2.5 sm:py-3 text-sm sm:text-base
-                  transition-colors placeholder:text-slate-600"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3 placeholder:text-slate-600"
                 />
               </div>
 
@@ -122,10 +131,7 @@ export default function ContactFormEmpresa() {
                   type="text"
                   name="position"
                   placeholder="Ej: CEO / Director"
-                  className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#3b8c5e] focus:outline-none
-                  text-white py-2.5 sm:py-3 text-sm sm:text-base
-                  transition-colors placeholder:text-slate-600"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3 placeholder:text-slate-600"
                 />
               </div>
 
@@ -134,11 +140,10 @@ export default function ContactFormEmpresa() {
                 <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
                   Objetivos
                 </label>
+
                 <select
-                  className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#3b8c5e] focus:outline-none
-                  text-white py-2.5 sm:py-3 text-sm sm:text-base
-                  transition-colors appearance-none cursor-pointer"
+                  name="objective"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3 appearance-none cursor-pointer"
                 >
                   {selectOptions.map((opt) => (
                     <option key={opt} value={opt} className="bg-[#161616]">
@@ -153,34 +158,26 @@ export default function ContactFormEmpresa() {
                 <label className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">
                   Mensaje
                 </label>
+
                 <textarea
                   name="message"
                   rows={4}
                   placeholder="Describa el desafío de su organización..."
-                  className="w-full bg-transparent border-b border-white/10
-                  focus:border-[#3b8c5e] focus:outline-none
-                  text-white py-2.5 sm:py-3 text-sm sm:text-base
-                  transition-colors resize-none placeholder:text-slate-600"
+                  className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-3 resize-none placeholder:text-slate-600"
                 />
               </div>
 
               {/* CTA */}
               <div className="md:col-span-2 pt-4">
-                <div className="md:col-span-2 pt-4">
-                  <button
-                    type="submit"
-                    className="w-full sm:w-auto bg-[#3b8c5e] text-white 
-                  px-6 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5
-                  text-xs sm:text-sm font-bold uppercase tracking-widest
-                  hover:bg-[#3b8c5e]/90 transition-all 
-                  flex items-center justify-center gap-2 sm:gap-3"
-                  >
-                    Enviar Solicitud
-                    <span className="material-symbols-outlined text-sm">
-                      north_east
-                    </span>
-                  </button>
-                </div>
+                <button
+                  type="submit"
+                  className="w-full sm:w-auto bg-[#3b8c5e] text-white px-6 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-[#3b8c5e]/90 transition-all flex items-center justify-center gap-2 sm:gap-3"
+                >
+                  Enviar Solicitud
+                  <span className="material-symbols-outlined text-sm">
+                    north_east
+                  </span>
+                </button>
               </div>
             </form>
           </div>
