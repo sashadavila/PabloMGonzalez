@@ -58,12 +58,13 @@ export function ContactFormDeportistas() {
                 setLoading(true);
 
                 try {
+                  const form = e.currentTarget;
                   const formData = new FormData(e.currentTarget);
 
                   const data = {
                     type: "Deportes",
                     name: formData.get("name"),
-                    extra: formData.get("extra"),
+                    disciplina: formData.get("disciplina"),
                     email: formData.get("email"),
                     message: formData.get("message"),
                   };
@@ -76,15 +77,21 @@ export function ContactFormDeportistas() {
                     body: JSON.stringify(data),
                   });
 
-                  if (!res.ok) throw new Error();
+                  const result = await res.json();
 
-                  toast.success("Mensaje enviado correctamente", {
-                    id: loadingToast,
-                  });
+                  if (result.success) {
+                    toast.success("Mensaje enviado correctamente", {
+                      id: loadingToast,
+                    });
 
-                  e.currentTarget.reset();
-                } catch {
-                  toast.error("No se pudo enviar", {
+                    form.reset();
+                  } else {
+                    toast.error("No se pudo enviar", {
+                      id: loadingToast,
+                    });
+                  }
+                } catch (error) {
+                  toast.error("Error de conexión", {
                     id: loadingToast,
                   });
                 } finally {
@@ -114,7 +121,7 @@ export function ContactFormDeportistas() {
                 </label>
                 <input
                   type="text"
-                  name="extra"
+                  name="disciplina"
                   placeholder="Tenis, Fútbol, Natación..."
                   className="w-full bg-transparent border-b border-white/10 focus:border-[#3b8c5e] focus:outline-none text-white py-4 text-sm md:text-base transition-colors placeholder:text-slate-600"
                 />

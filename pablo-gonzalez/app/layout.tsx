@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://pablogonzalez.com/LOGOTIPO1.png", // o el nombre correcto
+        url: "https://pablomgonzalez.com/LOGOTIPO1.png",
         width: 1200,
         height: 630,
       },
@@ -39,13 +40,28 @@ export default function RootLayout({
   return (
     <html lang="es" className={`dark ${manrope.variable}`}>
       <head>
-        {/* Material Symbols */}
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
       </head>
-      <body className="font-display antialiased">{children}</body>
+
+      <body className="font-display antialiased">
+        {children}
+
+        {/* TOAST GLOBAL */}
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            duration: 3500,
+            style: {
+              background: "#3b8c5e",
+              color: "#ffffff",
+              border: "1px solid rgba(255,255,255,0.08)",
+            },
+          }}
+        />
+      </body>
     </html>
   );
 }

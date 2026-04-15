@@ -36,7 +36,7 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: "Pablo Martin Gonzalez - Consultoría <onboarding@resend.dev>",
-      to: "carolinaarizat93@gmail.com",
+      to: "pablo@pablomgonzalez.com",
       subject: `${serviceTitle} | ${name}`,
       html: `
         <div style="font-family:Arial,sans-serif;background:#f8f9fa;padding:40px;">
@@ -72,7 +72,7 @@ export async function POST(req: Request) {
 
                 <tr>
                   <td style="padding:10px 0;color:#6b7280;"><strong>Extra</strong></td>
-                  <td style="padding:10px 0;color:#111827;">${extra || "-"}</td>
+                  <td style="padding:10px 0;color:#111827;">${extra || "position" || "interest" || "disciplina"}</td>
                 </tr>
               </table>
 

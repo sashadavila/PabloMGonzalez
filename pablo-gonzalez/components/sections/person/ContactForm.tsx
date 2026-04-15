@@ -53,13 +53,14 @@ export default function ContactForm() {
                 setLoading(true);
 
                 try {
+                  const form = e.currentTarget;
                   const formData = new FormData(e.currentTarget);
 
                   const data = {
                     type: "Persona",
                     name: formData.get("name"),
                     email: formData.get("email"),
-                    extra: formData.get("interest"),
+                    interest: formData.get("interest"),
                     message: formData.get("message"),
                   };
 
@@ -71,15 +72,21 @@ export default function ContactForm() {
                     body: JSON.stringify(data),
                   });
 
-                  if (!res.ok) throw new Error();
+                  const result = await res.json();
 
-                  toast.success("Mensaje enviado correctamente", {
-                    id: loadingToast,
-                  });
+                  if (result.success) {
+                    toast.success("Mensaje enviado correctamente", {
+                      id: loadingToast,
+                    });
 
-                  e.currentTarget.reset();
-                } catch {
-                  toast.error("No se pudo enviar el mensaje", {
+                    form.reset();
+                  } else {
+                    toast.error("No se pudo enviar", {
+                      id: loadingToast,
+                    });
+                  }
+                } catch (error) {
+                  toast.error("Error de conexión", {
                     id: loadingToast,
                   });
                 } finally {
