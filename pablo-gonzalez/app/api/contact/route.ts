@@ -36,7 +36,7 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: "Pablo Martin Gonzalez - Consultoría <onboarding@resend.dev>",
-      to: "pablo@pablomgonzalez.com",
+      to: "carolinaarizat93@gmail.com",
       subject: `${serviceTitle} | ${name}`,
       html: `
         <div style="font-family:Arial,sans-serif;background:#f8f9fa;padding:40px;">
