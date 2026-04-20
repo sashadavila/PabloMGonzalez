@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
+import WhatsAppButton from "@/components/sections/WhatsappBotton";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -50,6 +51,7 @@ export default function RootLayout({
         {children}
 
         {/* TOAST GLOBAL */}
+        <WhatsAppButton />
         <Toaster
           position="top-center"
           toastOptions={{
