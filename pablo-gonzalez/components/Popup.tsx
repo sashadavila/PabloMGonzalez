@@ -47,18 +47,19 @@ export default function Popup() {
         </button>
 
         {/* CONTENEDOR RESPONSIVO */}
-        <div className="w-full h-full object-contain scale-110">
+        <div className="w-screen h-screen flex items-center justify-center p-4">
           <Image
             src="/Banner.event.jpeg"
             alt="Banner del evento"
             width={1900}
             height={1700}
             className="
-              w-full h-full
-              object-contain
-              md:max-w-[700px] md:h-auto
-              rounded-lg
-            "
+      max-w-full max-h-full
+      object-contain
+      md:max-w-[90vw]
+      md:max-h-[90vh]
+      rounded-lg
+    "
             priority
           />
         </div>
