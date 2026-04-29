@@ -203,7 +203,7 @@ export function BrandPositioning() {
     scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
               />
             </div>
-            <div className="relative w-full h-[300px] sm:h-[380px] lg:h-full min-h-[420px]">
+            <div className="relative w-full h-[50vh] sm:h-[60vh] lg:h-full max-h-[700px]">
               <Image
                 src="/Foto.jpg"
                 alt="Pablo González"
@@ -365,7 +365,7 @@ export function BrandPositioning() {
     scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
               />
             </div>
-            <div className="relative w-full h-[300px] sm:h-[380px] lg:h-full min-h-[420px]">
+            <div className="relative w-full h-[50vh] sm:h-[60vh] lg:h-full max-h-[700px]">
               <Image
                 src="/Carolina.jpeg"
                 alt="Carolina Garibaldi"
