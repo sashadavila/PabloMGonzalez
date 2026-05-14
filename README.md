@@ -1,223 +1,258 @@
-# Pablo M González — Sitio Web Oficial
+# DOCUMENTACIÓN TÉCNICA
+## Pablo M González — Sitio Web Oficial
 
-Sitio web personal de Pablo M González, consultor de liderazgo ético. Construido con Next.js 15, Tailwind CSS v4 y Framer Motion.
-
-**URL en producción:** [pablomgonzalez.com](https://pablomgonzalez.com)
+**URL de producción:** [https://pablo-m-gonzalez-carolinaarizat93-3964s-projects.vercel.app](https://pablo-m-gonzalez-carolinaarizat93-3964s-projects.vercel.app)
 
 ---
 
-## Stack tecnológico
+## 1. Descripción General
 
-| Tecnología | Versión | Uso |
+Pablo M González es el sitio web personal del consultor de liderazgo ético Pablo M González. Su objetivo es presentar la propuesta de valor del consultor, conectar con tres perfiles de audiencia distintos (Personas, Empresas y Deportistas) y generar contacto directo vía WhatsApp.
+
+---
+
+## 2. Stack Tecnológico
+
+| Tecnología | Versión | Rol en el proyecto |
 |---|---|---|
-| Next.js | 15+ | Framework principal, App Router |
+| Next.js | 15+ | Framework principal — App Router |
 | Tailwind CSS | v4 | Estilos y diseño responsivo |
 | Framer Motion | Latest | Animaciones de entrada y transiciones |
 | TypeScript | 5+ | Tipado estático |
 | Manrope | Google Fonts | Tipografía principal (sans-serif) |
 | Libre Baskerville | Google Fonts | Tipografía editorial (serif) |
-| Material Symbols | Google | Íconos |
+| Material Symbols | Google | Íconos de interfaz |
 
 ---
 
-## Estructura del proyecto
+## 3. Estructura del Proyecto
+
+La raíz del proyecto Next.js es la carpeta `pablo-gonzalez/`. Vercel debe apuntarse a ese subdirectorio.
 
 ```
 PabloMGonzalez/
-├── pablo-gonzalez/              ← raíz del proyecto Next.js
+├── pablo-gonzalez/              <- Raíz del proyecto Next.js
 │   ├── app/
-│   │   ├── layout.tsx           ← layout raíz, fuentes, metadata
-│   │   ├── page.tsx             ← página principal (home)
-│   │   ├── globals.css          ← estilos globales, tokens de marca
-│   │   ├── icon.png             ← favicon
-│   │   ├── personas/
-│   │   │   └── page.tsx         ← página perfil Personas
-│   │   ├── empresas/
-│   │   │   └── page.tsx         ← página perfil Empresas
-│   │   └── deportistas/
-│   │       └── page.tsx         ← página perfil Deportistas
-│   │
+│   │   ├── layout.tsx           <- Layout raíz, fuentes, metadata
+│   │   ├── page.tsx             <- Página principal (home)
+│   │   ├── globals.css          <- Estilos globales, tokens de marca
+│   │   ├── icon.png             <- Favicon
+│   │   ├── personas/page.tsx    <- Perfil Personas
+│   │   ├── empresas/page.tsx    <- Perfil Empresas
+│   │   └── deportistas/page.tsx <- Perfil Deportistas
 │   ├── components/
-│   │   ├── sections/            ← secciones de la página
-│   │   │   ├── Navbar.tsx       ← navegación fija con menu mobile
-│   │   │   ├── Hero.tsx         ← hero con imagen de fondo y animaciones
-│   │   │   ├── BrandPositioning.tsx  ← historia de Pablo + features
-│   │   │   ├── ThreePillars.tsx ← 3 pilares con imagen y efectos hover
-│   │   │   ├── NavigationPaths.tsx   ← cards de acceso a cada perfil
-│   │   │   ├── CallToAction.tsx ← CTA intermedio
-│   │   │   └── Footer.tsx       ← footer con CTA final y links
-│   │   └── ui/                  ← componentes reutilizables
-│   │       ├── ThemeProvider.tsx ← proveedor de tema claro/oscuro
-│   │       └── ThemeToggle.tsx  ← botón cambio de tema
-│   │
-│   ├── public/
-│   │   ├── LOGO PNG (4).png     ← logo completo (ícono + wordmark)
-│   │   ├── ICONO PNG (4).png    ← solo el ícono de la marca
-│   │   ├── pg_bck_2.png         ← imagen hero principal
-│   │   ├── pg_bck_3.png         ← imagen sección filosofía / pilares
-│   │   ├── pilar.png            ← imagen pilar 02
-│   │   └── spartano.jpeg        ← imagen pilar 03
-│   │
-│   ├── next.config.ts           ← configuración Next.js
-│   ├── tailwind.config.ts       ← tokens de marca Tailwind
+│   │   ├── sections/            <- Secciones de la página principal
+│   │   │   ├── Navbar.tsx
+│   │   │   ├── Hero.tsx
+│   │   │   ├── BrandPositioning.tsx
+│   │   │   ├── ThreePillars.tsx
+│   │   │   ├── NavigationPaths.tsx
+│   │   │   ├── CallToAction.tsx
+│   │   │   └── Footer.tsx
+│   │   └── ui/                  <- Componentes reutilizables
+│   │       ├── ThemeProvider.tsx
+│   │       └── ThemeToggle.tsx
+│   ├── public/                  <- Assets estáticos
+│   ├── next.config.ts
+│   ├── tailwind.config.ts
 │   ├── tsconfig.json
 │   └── package.json
+└── README.md
 ```
 
 ---
 
-## Identidad de marca
+## 4. Páginas y Rutas
 
-### Paleta de colores
-
-| Variable | Valor | Uso |
+| Ruta | Archivo | Descripción |
 |---|---|---|
-| `--color-primary` | `#3b8c5e` | Verde marca, CTAs, íconos |
-| `#C9A84C` | Dorado | Acentos, hovers, elementos premium |
-| `#E0BD6A` | Dorado claro | Hover secundario |
-| `#0d0d0d` | Negro | Fondo principal (dark) |
-| `#f5f3ef` | Crema | Fondo (light mode) |
-
-### Tipografía
-
-| Fuente | Uso | Peso |
-|---|---|---|
-| Manrope | Cuerpo, navegación, UI | 300, 400, 500, 700 |
-| Libre Baskerville | Títulos, citas, editorial | 400, 700, italic |
-
-### Pilares de marca
-- **Exclusividad** — acceso limitado, alto valor
-- **Autenticidad** — experiencia vivida, no teoría
-- **Transformación** — cambio sostenible y real
-- **Resiliencia** — fortaleza desde la adversidad
+| `/` | `app/page.tsx` | Página principal (home) con todas las secciones |
+| `/personas` | `app/personas/page.tsx` | Landing para el perfil Personas |
+| `/empresas` | `app/empresas/page.tsx` | Landing para el perfil Empresas |
+| `/deportistas` | `app/deportistas/page.tsx` | Landing para el perfil Deportistas |
 
 ---
 
-## Secciones de la página
+## 5. Componentes
 
-### 1. Navbar
+### 5.1 Secciones — página principal
+
+#### Navbar
 - Logo de marca con `next/image`
-- Links de navegación desktop
-- Menú hamburguesa en mobile
-- CTA "Contacto" enlazado al footer
+- Links de navegación para desktop
+- Menú hamburguesa responsive para mobile
+- CTA "Contacto" que ancla al footer
 - Toggle de tema claro/oscuro
 
-### 2. Hero
+#### Hero
 - Imagen de fondo full-screen en desktop (`pg_bck_2.png`)
-- En mobile: imagen con `aspect-[16/9]` + texto debajo
-- Animaciones de entrada con Framer Motion (stagger)
+- En mobile: imagen con `aspect-[16/9]` seguida del texto
+- Animaciones de entrada con Framer Motion (efecto stagger)
 - Eyebrow dorado + subtítulo en Libre Baskerville
 
-### 3. Brand Positioning
-- **Bloque 1:** Historia de Pablo con imagen, cita en blockquote y stats
-- **Bloque 2:** Enfoque con 4 cards de servicios con efecto shimmer dorado
+#### BrandPositioning
+- **Bloque 1:** Historia de Pablo — imagen, cita en blockquote y stats clave
+- **Bloque 2:** Enfoque — 4 cards de servicios con efecto shimmer dorado
 
-### 4. Three Pillars
+#### ThreePillars
 - 3 cards con imagen de fondo
-- Efectos al hover/active: desaturación → color, shimmer dorado, glow, borde inferior
-- Descripción siempre visible en mobile
+- Efectos hover/active: desaturación → color, shimmer dorado, glow y borde inferior
+- En mobile: descripción siempre visible (sin necesidad de hover)
 
-### 5. Navigation Paths
+#### NavigationPaths
 - 3 cards de acceso: Personas / Empresas / Deportistas
-- Mismo sistema de efectos dorados
-- Grid: 1 col mobile → 2 col tablet → 3 col desktop
+- Mismo sistema de efectos dorados que ThreePillars
+- Grid responsive: 1 columna mobile → 2 columnas tablet → 3 columnas desktop
 
-### 6. Footer
-- CTA final "¿Listo para reescribir tu historia?"
-- Botón WhatsApp + email
+#### CallToAction
+Sección intermedia con CTA principal que refuerza la propuesta de valor.
+
+#### Footer
+- CTA final: "¿Listo para reescribir tu historia?"
+- Botón de WhatsApp (`wa.me`) + enlace de email
 - Brand, links legales y copyright
 
----
+### 5.2 Componentes UI reutilizables
 
-## Efectos visuales (sistema de diseño)
-
-Todos los elementos interactivos usan el mismo sistema de efectos dorados:
-
-```tsx
-// Shimmer — barre de izquierda a derecha
-bg-[linear-gradient(105deg,transparent_40%,rgba(201,168,76,0.07)_50%,transparent_60%)]
-translate-x-[-100%] group-hover:translate-x-[100%] group-active:translate-x-[100%]
-
-// Glow radial desde abajo
-bg-[radial-gradient(ellipse_at_bottom,rgba(201,168,76,0.08)_0%,transparent_70%)]
-opacity-0 group-hover:opacity-100 group-active:opacity-100
-
-// Borde dorado que se despliega
-bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent
-scale-x-0 group-hover:scale-x-100 group-active:scale-x-100
-```
-
-> `group-active:` habilita los efectos en mobile al tocar la pantalla.
+| Componente | Descripción |
+|---|---|
+| `ThemeProvider.tsx` | Proveedor de contexto de tema claro/oscuro (React Context) |
+| `ThemeToggle.tsx` | Botón que alterna entre light mode y dark mode |
 
 ---
 
-## Setup local
+## 6. Identidad de Marca
+
+### 6.1 Paleta de colores
+
+| Variable / Valor | Color | Uso |
+|---|---|---|
+| `--color-primary` / `#3b8c5e` | Verde marca | CTAs, íconos, acentos principales |
+| `#C9A84C` | Dorado | Acentos, hovers, elementos premium |
+| `#E0BD6A` | Dorado claro | Hover secundario |
+| `#0d0d0d` | Negro | Fondo principal (dark mode) |
+| `#f5f3ef` | Crema | Fondo (light mode) |
+
+### 6.2 Tipografía
+
+| Fuente | Uso | Pesos |
+|---|---|---|
+| Manrope | Cuerpo, navegación, UI general | 300, 400, 500, 700 |
+| Libre Baskerville | Títulos, citas, elementos editoriales | 400, 700, italic |
+
+### 6.3 Pilares de marca
+
+| Pilar | Descripción |
+|---|---|
+| Exclusividad | Acceso limitado, propuesta de alto valor |
+| Autenticidad | Experiencia vivida, no teoría académica |
+| Transformación | Cambio sostenible y real en las personas |
+| Resiliencia | Fortaleza construida desde la adversidad |
+
+---
+
+## 7. Sistema de Efectos Visuales
+
+Todos los elementos interactivos (cards de pilares, paths de navegación y cards de servicios) comparten el mismo sistema de efectos dorados, activados tanto en hover (desktop) como en `:active` (mobile táctil).
+
+### 7.1 Componentes del efecto
+
+| Efecto | Descripción técnica |
+|---|---|
+| Shimmer | Gradiente lineal que barre de izquierda a derecha — `translate-x-[-100%]` a `translate-x-[100%]` |
+| Glow radial | Gradiente radial desde la parte inferior, opacidad `0 → 1` al hacer hover |
+| Borde inferior dorado | Línea que se expande con `scale-x-0 → scale-x-100` desde el centro |
+| Desaturación de imagen | La imagen pasa de escala de grises a color pleno al hacer hover |
+
+> `group-active:` en las clases de Tailwind habilita los efectos en dispositivos táctiles.
+
+---
+
+## 8. Assets Estáticos
+
+| Archivo | Uso |
+|---|---|
+| `LOGO PNG (4).png` | Logo completo (ícono + wordmark) — Navbar y footer |
+| `ICONO PNG (4).png` | Solo el ícono de marca — usos reducidos |
+| `pg_bck_2.png` | Imagen de fondo del Hero |
+| `pg_bck_3.png` | Imagen de fondo sección Filosofía / Pilares |
+| `pilar.png` | Imagen card Pilar 02 |
+| `spartano.jpeg` | Imagen card Pilar 03 |
+
+---
+
+## 9. Setup Local
+
+### 9.1 Requisitos previos
+- Node.js >= 18
+- npm >= 9
+- Git
+
+### 9.2 Pasos de instalación
 
 ```bash
 # 1. Clonar el repositorio
 git clone https://github.com/CarolinaAriza-mind/PabloMGonzalez.git
+
+# 2. Ingresar al directorio del proyecto
 cd PabloMGonzalez/pablo-gonzalez
 
-# 2. Instalar dependencias
+# 3. Instalar dependencias
 npm install
 
-# 3. Correr en desarrollo
+# 4. Iniciar servidor de desarrollo
 npm run dev
 
-# 4. Build de producción
-npm run build
+# Disponible en http://localhost:3000
 ```
 
-El servidor corre en `http://localhost:3000` por defecto.
+### 9.3 Comandos disponibles
+
+| Comando | Descripción |
+|---|---|
+| `npm run dev` | Servidor de desarrollo con hot-reload |
+| `npm run build` | Build de producción optimizado |
+| `npm run lint` | Verificación de errores ESLint |
+| `git add . && git commit -m '...' && git push` | Publicar cambios (dispara deploy en Vercel) |
 
 ---
 
-## Deploy
+## 10. Deploy y Configuración de Producción
 
-El sitio se despliega automáticamente en **Vercel** con cada push a `main`.
+### 10.1 Plataforma
 
-### Configuración DNS (Hostinger/Donweb → Vercel)
+El sitio se despliega automáticamente en **Vercel** con cada push a la rama `main`. No se requiere intervención manual.
 
-| Tipo | Nombre | Valor |
-|---|---|---|
-| `A` | `@` | `216.198.79.1` |
-| `CNAME` | `www` | `cname.vercel-dns.com` |
+**URL de producción:** https://pablo-m-gonzalez.vercel.app
 
-### Root Directory en Vercel
-```
-pablo-gonzalez
-```
+### 10.2 Configuración en Vercel
+
+- **Root Directory:** `pablo-gonzalez`
+- **Framework Preset:** Next.js (detectado automáticamente)
+- **Build Command:** `npm run build` (por defecto)
+- **Output Directory:** `.next` (por defecto)
 
 ---
 
-## Variables de entorno
+## 11. Variables de Entorno
 
-Este proyecto no requiere variables de entorno para funcionar. El formulario de contacto usa WhatsApp directo mediante un link `wa.me`.
+El proyecto actualmente no requiere variables de entorno. El formulario de contacto utiliza un enlace directo de WhatsApp (`wa.me`) sin servidor intermedio.
 
-Si en el futuro se agrega un formulario con Resend, agregar en Vercel:
+Si en el futuro se implementa un formulario con envío de emails mediante Resend, agregar en Vercel:
+
 ```
 RESEND_API_KEY=re_xxxxxxxxxxxx
 ```
 
 ---
 
-## Comandos útiles
+## 12. Contacto del Proyecto
 
-```bash
-npm run dev        # desarrollo local
-npm run build      # build de producción
-npm run lint       # verificar errores ESLint
-git add .          # stagear cambios
-git commit -m ""   # commitear
-git push           # deploy automático a Vercel
-```
+| Rol | Persona | 
+|---|---|---|
+| Cliente / Propietario | Pablo M González | 
+| Desarrollo | Carolina Ariza | GitHub: CarolinaAriza-mind |
 
 ---
 
-## Contacto del proyecto
-
-- **Cliente:** Pablo M González
-- **Email:** hola@pablomgonzalez.com
-- **Desarrollo:** Carolina Ariza
-
-### Proyecto continua en desarrollo
+*Proyecto Terminado*
