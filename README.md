@@ -249,9 +249,8 @@ RESEND_API_KEY=re_xxxxxxxxxxxx
 ## 12. Contacto del Proyecto
 
 | Rol | Persona | 
-|---|---|---|
-| Cliente / Propietario | Pablo M González | 
-| Desarrollo | Carolina Ariza | GitHub: CarolinaAriza-mind |
+*Cliente / Propietario | Pablo M González*
+**Desarrollo | Carolina Ariza | GitHub: CarolinaAriza-mind**
 
 ---
 
