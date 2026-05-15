@@ -223,7 +223,7 @@ npm run dev
 
 El sitio se despliega automáticamente en **Vercel** con cada push a la rama `main`. No se requiere intervención manual.
 
-**URL de producción:** https://pablo-m-gonzalez.vercel.app
+**URL de producción:** https://pablo-m-gonzalez-carolinaarizat93-3964s-projects.vercel.app
 
 ### 10.2 Configuración en Vercel
 
